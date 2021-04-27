@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Product } from 'src/app/model/product/product';
 
 @Component({
 	selector: 'app-add',
@@ -29,7 +28,7 @@ export class AddComponent implements OnInit {
 		if (invalidCtrl !== undefined) {
 			console.debug("invalid ctrl: ", invalidCtrl);
 		} else {
-			const product: Product = {
+			const product = {
 				name: name.value,
 				price: price.value,
 				quantity: quantity.value,

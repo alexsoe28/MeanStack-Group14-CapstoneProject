@@ -1,1 +1,19 @@
-<p>update works!</p>
+<form [formGroup]="updateProductForm" (ngSubmit)="onSubmit()">
+	<label>
+		Product ID
+		<input type="text" formControlName="productId">
+	</label>
+	<label>
+		Product Name
+		<input type="text" formControlName="name">
+	</label>
+	<label>
+		Price
+		<input type="number" formControlName="price">
+	</label>
+	<label>
+		Quantity
+		<input type="number" formControlName="quantity">
+	</label>
+	<button type="submit">Submit</button>
+</form>
