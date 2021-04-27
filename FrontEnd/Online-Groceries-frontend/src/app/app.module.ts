@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -17,18 +18,21 @@ import { HomeComponent } from './components/admin/home/home.component';
   declarations: [
     AppComponent,
 
+    // Admin
     SignInComponent,
     AddComponent,
     DeleteComponent,
     UpdateComponent,
     ViewComponent,
-    HomeComponent
+    HomeComponent,
+
+    //  Shopping Cart
+    ShoppingPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
-		ReactiveFormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
