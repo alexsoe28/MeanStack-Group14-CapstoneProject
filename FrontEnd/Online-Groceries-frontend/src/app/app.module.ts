@@ -13,6 +13,7 @@ import { DeleteComponent } from './components/admin/products/delete/delete.compo
 import { UpdateComponent } from './components/admin/products/update/update.component';
 import { ViewComponent } from './components/admin/requests/view/view.component';
 import { HomeComponent } from './components/admin/home/home.component';
+import { RootComponent } from './components/root/root.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HomeComponent } from './components/admin/home/home.component';
 
     //  Shopping Cart
     ShoppingPageComponent,
+     RootComponent,
   ],
   imports: [
     BrowserModule,
