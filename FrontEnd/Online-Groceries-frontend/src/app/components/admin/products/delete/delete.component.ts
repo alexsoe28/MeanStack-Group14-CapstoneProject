@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-delete',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor() { }
+	deleteProductForm = this.fb.group({
+		productId: ['', [Validators.required]],
+	})
 
-  ngOnInit(): void {
-  }
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit(): void { }
+	
+	onSubmit() {
+		const productId = this.deleteProductForm.get("productId") as FormControl
+
+		if (productId.invalid) {
+			console.debug("invalid ctrl: ", productId);
+		} else {
+			console.log(productId);
+		}
+	}
 
 }

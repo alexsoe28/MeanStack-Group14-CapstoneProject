@@ -1,1 +1,7 @@
-<p>delete works!</p>
+<form [formGroup]="deleteProductForm" (ngSubmit)="onSubmit()">
+	<label>
+		Product ID
+		<input type="text" formControlName="productId">
+	</label>
+	<button type="submit">Submit</button>
+</form>
