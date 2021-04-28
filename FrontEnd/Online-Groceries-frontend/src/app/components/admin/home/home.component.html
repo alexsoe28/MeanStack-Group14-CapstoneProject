@@ -1,0 +1,14 @@
+<section>
+	<ul *ngFor="let group of homeDirectory">
+		<li>
+			<h1>{{group.title}}</h1>
+			<ul *ngFor="let item of group.items">
+				<li><button [routerLink]="[{outlets: {adminHome: [item.routerLink]}}]">{{item.title}}</button></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<router-outlet name="adminHome"></router-outlet>
+</section>

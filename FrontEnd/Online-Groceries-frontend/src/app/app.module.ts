@@ -15,30 +15,52 @@ import { UsersignupComponent } from './usersignup/usersignup.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { loginAuthGuard } from './loginAuthGuard';
 import { ItemComponent } from './userpanel/item/item.component';
+import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
+import { SignInComponent } from './components/admin/signin/signin.component';
+import { AddComponent } from './components/admin/products/add/add.component';
+import { DeleteComponent } from './components/admin/products/delete/delete.component';
+import { UpdateComponent } from './components/admin/products/update/update.component';
+import { ViewComponent } from './components/admin/requests/view/view.component';
+import { HomeComponent } from './components/admin/home/home.component';
+import { RootComponent } from './components/root/root.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,  
+    // Admin
+    SignInComponent,
+    AddComponent,
+    DeleteComponent,
+    UpdateComponent,
+    ViewComponent,
+    HomeComponent,
+
+    //  Shopping Cart
+    ShoppingPageComponent,
+    ShoppingCartComponent,
+    RootComponent,
+    
+    // User
     UserloginComponent,
     UsersignupComponent,
     UserpanelComponent,
     ItemComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
-  providers: [loginAuthGuard],
-  bootstrap: [AppComponent]
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      FormsModule,
+      HttpClientModule,
+      BrowserAnimationsModule,
+      MatIconModule,
+      MatButtonModule,
+      MatCardModule,
+      MatInputModule,
+      MatFormFieldModule,
+    ],
+    providers: [loginAuthGuard],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
