@@ -24,8 +24,8 @@ exports.getAll = async (req, res, next) => {
  * @param {NextFunction} next
  */
 exports.getById = async (req, res, next) => {
-	const productId = req.params.productId;
-	if (productId === undefined) { next(TypeError(`Invalid productId`)); return; }
+	const productId = req.query.productId;
+	if (productId === undefined) { next(TypeError(`Invalid productId. params: ${JSON.stringify(req.params)}`)); return; }
 
 	const query = InventoryModel.find({ _id: productId });
 	await query.exec()
@@ -50,7 +50,7 @@ exports.addOne = async (req, res, next) => {
 	const product = new InventoryModel({ name: name, price: price, stockInventory: stockInventory })
 	product.save()
 		.then(doc => res.status(200).json(doc))
-		.catch(next)
+		.catch(next);
 }
 
 /**
@@ -59,19 +59,21 @@ exports.addOne = async (req, res, next) => {
  * @param {NextFunction} next
  */
 exports.updateById = async (req, res, next) => {
-	const { productId, name, price, stockInventory } = req.body;
-	if (
-		typeof productId !== Number || typeof name !== String ||
-		typeof price !== Number || typeof stockInventory !== Number
-	) {
-		next(TypeError(`Invalid productId`));
+	let { productId, name, price, stockInventory } = req.body;
+	[price, stockInventory] = [Number(price), Number(stockInventory)];
+	if (typeof productId !== "string" || typeof name !== "string" || isNaN(price) || isNaN(stockInventory)) {
+		next(TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
 		return;
 	}
 
-	const product = new InventoryModel({ _id: productId, name: name, price: price, stockInventory: stockInventory })
-	await product.save()
+	const update = InventoryModel.findByIdAndUpdate(
+		productId,
+		{ name: name, price: price, stockInventory: stockInventory },
+		{ new: true }
+	);
+	update.exec()
 		.then(doc => res.status(200).json(doc))
-		.catch(next)
+		.catch(next);
 }
 
 /**
