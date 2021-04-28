@@ -48,7 +48,7 @@ exports.addOne = (req, res, next) => {
 	}
 
 	const product = InventoryModel.create({ name: name, price: price, stockInventory: stockInventory });
-	product.save()
+	product
 		.then(doc => res.status(200).json(doc))
 		.catch(next);
 }
