@@ -7,6 +7,10 @@ import { UpdateComponent as AdminUpdateProductComponent } from "./components/adm
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { RootComponent } from './components/root/root.component';
+import { loginAuthGuard } from './loginAuthGuard';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { UserpanelComponent } from './userpanel/userpanel.component';
+import { UsersignupComponent } from './usersignup/usersignup.component';
 
 const routes: Routes = [
 	// Root
@@ -25,6 +29,10 @@ const routes: Routes = [
 	{ path: "user/browseShop", component: ShoppingPageComponent },
 	{ path: "user", redirectTo: "/user/browseShop", pathMatch: "full" },
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
+  { path: "user\login", component:UserloginComponent},
+  { path: "user\signup", component:UsersignupComponent},
+  { path: "user\dashboard", component:UserpanelComponent,canActivate:[loginAuthGuard]},
+  { path: "user", redirectTo:"\login",pathMatch:"full"}
 ];
 
 @NgModule({
