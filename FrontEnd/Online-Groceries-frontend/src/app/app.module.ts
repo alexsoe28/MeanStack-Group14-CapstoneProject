@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
-<<<<<<< HEAD
 
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -15,11 +14,13 @@ import { UpdateComponent } from './components/admin/products/update/update.compo
 import { ViewComponent } from './components/admin/requests/view/view.component';
 import { HomeComponent } from './components/admin/home/home.component';
 import { RootComponent } from './components/root/root.component';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 @NgModule({
   declarations: [
     AppComponent,
-
+    
     // Admin
     SignInComponent,
     AddComponent,
@@ -30,25 +31,18 @@ import { RootComponent } from './components/root/root.component';
 
     //  Shopping Cart
     ShoppingPageComponent,
-     RootComponent,
-=======
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-@NgModule({
-  declarations: [
-    AppComponent,
-    ShoppingPageComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    RootComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      FormsModule,
+      HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+
 })
 export class AppModule { }
