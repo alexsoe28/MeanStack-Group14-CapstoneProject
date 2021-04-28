@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
+<<<<<<< HEAD
 
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -30,11 +31,22 @@ import { RootComponent } from './components/root/root.component';
     //  Shopping Cart
     ShoppingPageComponent,
      RootComponent,
+=======
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+@NgModule({
+  declarations: [
+    AppComponent,
+    ShoppingPageComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

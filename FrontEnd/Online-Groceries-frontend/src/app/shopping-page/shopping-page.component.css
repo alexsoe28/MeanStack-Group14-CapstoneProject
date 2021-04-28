@@ -18,11 +18,13 @@
 .groceryItem{
     float:left;
     font-family:system-ui;
-    margin:auto;
-    width:23.6%;
+    margin:20px;
+    margin-left: 40px;
+    width:20%;
     height:450px;
-    font-size: 400%;
+    font-size: 300%;
     border:3px solid #73AD21;
+    border-radius: 50px;
     padding:10px;
     text-align:center;
 }
@@ -32,10 +34,10 @@
     margin-right: auto;
   }
 
-input[type=submit] {
+button[type=submit] {
     font-size: 14px;
     font-family:system-ui;
-    width: 110px;
+    width: 120px;
     background-color: #73AD21;
     color: white;
     padding: 14px 20px;
