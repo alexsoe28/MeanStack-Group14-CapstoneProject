@@ -13,7 +13,7 @@ let InventoryModel = require("../model/inventory.model");
  */
 exports.getAll = async (req, res, next) => {
 	const query = InventoryModel.find({});
-	await query.exec()
+	query.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next)
 };
@@ -23,12 +23,12 @@ exports.getAll = async (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next
  */
-exports.getById = async (req, res, next) => {
+exports.getById = (req, res, next) => {
 	const productId = req.query.productId;
 	if (productId === undefined) { next(TypeError(`Invalid productId. params: ${JSON.stringify(req.params)}`)); return; }
 
-	const query = InventoryModel.find({ _id: productId });
-	await query.exec()
+	const query = InventoryModel.findById(productId);
+	query.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next)
 }
@@ -38,7 +38,7 @@ exports.getById = async (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next
  */
-exports.addOne = async (req, res, next) => {
+exports.addOne = (req, res, next) => {
 	let { name, price, stockInventory } = req.body;
 	[price, stockInventory] = [Number(price), Number(stockInventory)];
 
@@ -47,7 +47,7 @@ exports.addOne = async (req, res, next) => {
 		return;
 	}
 
-	const product = new InventoryModel({ name: name, price: price, stockInventory: stockInventory })
+	const product = InventoryModel.create({ name: name, price: price, stockInventory: stockInventory });
 	product.save()
 		.then(doc => res.status(200).json(doc))
 		.catch(next);
@@ -58,7 +58,7 @@ exports.addOne = async (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next
  */
-exports.updateById = async (req, res, next) => {
+exports.updateById = (req, res, next) => {
 	let { productId, name, price, stockInventory } = req.body;
 	[price, stockInventory] = [Number(price), Number(stockInventory)];
 	if (typeof productId !== "string" || typeof name !== "string" || isNaN(price) || isNaN(stockInventory)) {
@@ -81,12 +81,12 @@ exports.updateById = async (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next
  */
-exports.deleteById = async (req, res, next) => {
+exports.deleteById = (req, res, next) => {
 	const productId = req.params.productId;
 	if (productId === undefined) { next(TypeError(`Invalid productId`)); return; }
 
-	const query = InventoryModel.deleteOne({ _id: productId });
-	await query.exec()
+	const query = InventoryModel.findByIdAndDelete(productId);
+	query.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next)
 }
