@@ -1,6 +1,6 @@
 .header1{
     background-image:url('../../assets/images/Background1.jpg');
-    height:max-content;
+    height:200px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,7 @@
     background-size: rgba(0,0,0,0.5);
     text-align: center;
     color:white;
-    padding: 50px;
+    padding: 85px;
     font-variant: small-caps;
     font-size: 100px;
     font-family: system-ui;
