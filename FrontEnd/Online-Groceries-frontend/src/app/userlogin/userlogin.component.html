@@ -1,0 +1,25 @@
+<div class="login justify-content-center">
+    <mat-card>
+        <!-- (ngSubmit)="loginUser(loginRef.value)" -->
+        <form #loginRef="ngForm" (ngSubmit)="loginUser()"> 
+            <mat-icon aria-hidden="false" aria-label="account">account_circle</mat-icon>
+            <br/>
+            <mat-form-field>
+                <mat-label>Usename</mat-label>
+                <input matInput type="text" name="username" ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hidepass ? 'password' : 'text'" name="password" ngModel>
+                <button mat-icon-button matSuffix (click)="hidepass = !hidepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidepass">
+                    <mat-icon>{{hidepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br/><br/>
+            <div class="row justify-content-center"><button mat-raised-button color="primary" type="submit">Login <mat-icon aria-hidden="false" aria-label="Login">login</mat-icon></button></div>
+            <br/>
+        </form>
+        <div class="row justify-content-center"><h3>New User? <a [routerLink]="" (click)="signupRedirect()">Click here </a>to sign up</h3></div>
+    </mat-card>
+</div>
