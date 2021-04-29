@@ -11,8 +11,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
 import { loginAuthGuard } from './loginAuthGuard';
 import { UserloginComponent } from './components/user/userlogin/userlogin.component';
-import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
+import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 
 const routes: Routes = [
 	// Root
