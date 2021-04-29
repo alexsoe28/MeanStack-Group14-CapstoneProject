@@ -14,6 +14,6 @@
             <input matInput name="updatedPass2" [(ngModel)]="updatedPass2" placeholder="Re-enter your new password">
         </mat-form-field>
             <button mat-raised-button color="primary">Submit</button><br/>
-            <button mat-raised-button color="warn">Log Out</button><!-- route this button back to login page -->
+            <button mat-raised-button color="warn" (click)="logOut()">Log Out</button><!-- route this button back to login page -->
     </form>
 </div>

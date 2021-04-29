@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  ipAddress:string="";
 
-  constructor() { }
+  constructor(public http:HttpClient) { }
 
   unlockUser(userId:number) {
-    //Ping end point with post method using user ID to unlock user
+    return this.http.post(this.ipAddress+"/unlockUserById", userId, {responseType:"text"}).
+    subscribe(result=>console.log(result),error=>console.log(error));
   }
 
   updatePassword() {

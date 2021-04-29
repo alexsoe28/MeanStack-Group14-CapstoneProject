@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor(public userService:UserService) { }
+  constructor(public userService:UserService, /*public router:Router*/) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +18,10 @@ export class EditProfileComponent implements OnInit {
     // });
     // this.userService.updatePassword(password).subscribe((result:string) => {
     // });
+  }
+
+  logOut() {
+    //this.router.userLogin;
   }
 
 }

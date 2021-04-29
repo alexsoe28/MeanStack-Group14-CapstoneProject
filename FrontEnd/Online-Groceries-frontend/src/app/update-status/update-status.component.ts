@@ -7,6 +7,7 @@ import { OrderService } from '../order.service';
   styleUrls: ['./update-status.component.css']
 })
 export class UpdateStatusComponent implements OnInit {
+  updateMsg?:string;
 
   constructor(public orderService:OrderService) { }
 
@@ -14,7 +15,7 @@ export class UpdateStatusComponent implements OnInit {
   }
 
   updateStatus(updateOrder: any) {
-    //orderService.updateOrderStatus(updateOrder).subscribe((result:string) => {
+    //this.orderService.updateOrderStatus(updateOrder).subscribe((result:string) => {
     //});
   }
 
