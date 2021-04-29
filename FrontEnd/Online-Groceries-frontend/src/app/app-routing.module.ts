@@ -10,9 +10,9 @@ import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
 import { loginAuthGuard } from './loginAuthGuard';
-import { UserloginComponent } from './userlogin/userlogin.component';
-import { UserpanelComponent } from './userpanel/userpanel.component';
-import { UsersignupComponent } from './usersignup/usersignup.component';
+import { UserloginComponent } from './components/user/userlogin/userlogin.component';
+import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
+import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 
 const routes: Routes = [
 	// Root
