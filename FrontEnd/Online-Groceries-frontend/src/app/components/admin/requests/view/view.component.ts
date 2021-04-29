@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket, TicketsService } from 'src/app/services/tickets/tickets.service';
 
 @Component({
   selector: 'app-view',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+	tickets: Ticket[] = [];
+
+  constructor(private ticketsService: TicketsService) { }
 
   ngOnInit(): void {
-  }
+		this.ticketsService.getAdminRequests()
+			.subscribe(data => this.tickets = data);
+	}
 
 }
