@@ -10,7 +10,7 @@ export class OrderService {
   constructor(public http:HttpClient) { }
 
   updateOrderStatus(updateOrder: any) {
-    return this.http.post(this.ipAddress+"/unlockUserById", updateOrder, {responseType:"text"}).
+    return this.http.post(this.ipAddress+"/updateStatus", updateOrder, {responseType:"text"}).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
