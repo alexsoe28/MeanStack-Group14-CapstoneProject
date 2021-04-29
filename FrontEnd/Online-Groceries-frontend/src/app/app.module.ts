@@ -5,11 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
+import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatTableModule } from '@angular/material/table';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { UserloginComponent } from './userlogin/userlogin.component';
@@ -55,15 +54,13 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
       ReactiveFormsModule,
       FormsModule,
       HttpClientModule,
-      MatInputModule,
-      MatFormFieldModule,
-      MatTableModule,
       BrowserAnimationsModule,
       MatIconModule,
       MatButtonModule,
       MatCardModule,
       MatInputModule,
       MatFormFieldModule,
+      MatTableModule,
     ],
     providers: [loginAuthGuard],
     bootstrap: [AppComponent]
