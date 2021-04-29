@@ -1,0 +1,46 @@
+<div class="signup justify-content-center">
+    <mat-card>
+        <form #signupRef="ngForm">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" name="fname" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput type="password" name="lname" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput type="text" name="uname" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" name="email" required ngModel>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hidepass ? 'password' : 'text'" name="password" required ngModel>
+                <button mat-icon-button matSuffix (click)="hidepass = !hidepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidepass">
+                    <mat-icon>{{hidepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Re-Enter Password</mat-label>
+                <input matInput [type]="hiderepass ? 'password' : 'text'" name="repassword" required ngModel>
+                <button mat-icon-button matSuffix (click)="hiderepass = !hiderepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hiderepass">
+                    <mat-icon>{{hiderepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br/><br/>
+            <div class="main"><button mat-raised-button color="primary" type="submit">Sign Up <mat-icon aria-hidden="false" aria-label="Signup">person_add</mat-icon></button></div>
+        </form>
+        <br/>
+        <h3>{{msg}}</h3>
+    </mat-card>
+</div>
