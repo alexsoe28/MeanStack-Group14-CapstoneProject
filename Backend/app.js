@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/inventory", require("./router/inventory.router"));
 app.use("/users", require("./router/users.router"));
+app.use("/orders", require("./router/order.router"));
 
 // Default Error Handling
 app.use((err, req, res, next) => {
