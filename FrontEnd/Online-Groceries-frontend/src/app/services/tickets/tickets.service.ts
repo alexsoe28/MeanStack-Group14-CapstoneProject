@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { map, tap, catchError } from "rxjs/operators";
 
+export type TicketType = "ticket" | "adminRequest";
+
+export interface TicketRequest {
+	userId: String, message: String
+}
+
 export interface Ticket {
 	_id: String,
 	userId: String,
@@ -11,28 +17,59 @@ export interface Ticket {
 }
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TicketsService {
 
 	host = "http://localhost:9090";
 	endpoint = "/tickets";
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-	getAdminRequests() {
-		const url = this.host + this.endpoint + "/getAllAdminTickets";
+	private getTickets(ticketType: TicketType) {
+		const url = (() => {
+			switch (ticketType) {
+				case 'adminRequest': return this.host + this.endpoint + "/getAllAdminTickets";
+				case 'ticket': return this.host + this.endpoint + "/getAllUserTickets";
+			}
+		})();
+
 		return this.http.get<Ticket[]>(url)
 			.pipe(
 				tap(data => console.log(data)),
 				catchError(error => throwError(error))
+			);
+	}
+
+	private raiseTicket(ticketType: TicketType, ticket: TicketRequest) {
+		const url = (() => {
+			switch (ticketType) {
+				case 'adminRequest': return this.host + this.endpoint + "/raiseAdminRequest";
+				case 'ticket': return this.host + this.endpoint + "/raiseUserTicket";
+			}
+		})();
+
+		this.http.post(url, ticket)
+			.pipe(
+				tap(data => console.log(data)),
+				catchError(error => throwError(error))
 			)
+			.subscribe();
 	}
 
-	addProduct(product: { name: String, price: Number, stockInventory: Number }) {
-		const url = this.host + this.endpoint + "/addOne";
-		this.http.post(url, product)
-			.subscribe(result => console.log(result), error => console.error(error));
+	getAdminRequests() {
+		return this.getTickets("adminRequest");
 	}
 
+	getUserTickets() {
+		return this.getTickets("ticket");
+	}
+
+	raiseAdminRequest(ticket: TicketRequest) {
+		return this.raiseTicket("adminRequest", ticket);
+	}
+
+	raiseUserTicket(ticket: TicketRequest) {
+		return this.raiseTicket("ticket", ticket);
+	}
 }
