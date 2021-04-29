@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ProductsService } from 'src/app/services/admin/products.service';
 
 @Component({
-  selector: 'app-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.css']
+	selector: 'app-delete',
+	templateUrl: './delete.component.html',
+	styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
 
@@ -12,10 +13,10 @@ export class DeleteComponent implements OnInit {
 		productId: ['', [Validators.required]],
 	})
 
-  constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder, private productsService: ProductsService) { }
 
-  ngOnInit(): void { }
-	
+	ngOnInit(): void { }
+
 	onSubmit() {
 		const productId = this.deleteProductForm.get("productId") as FormControl
 
@@ -24,6 +25,9 @@ export class DeleteComponent implements OnInit {
 		} else {
 			console.log(productId);
 		}
+
+		const payload = { productId: productId.value as String };
+		this.productsService.deleteProduct(payload);
 	}
 
 }
