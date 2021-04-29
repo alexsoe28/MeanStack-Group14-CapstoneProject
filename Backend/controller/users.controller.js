@@ -28,8 +28,25 @@ exports.userSignup = (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next 
  */
-exports.userLogin = (req, res, next) => {
-	res.send("logged in")
+exports.userLogin = async (req, res, next) => {
+	let { username, password, accessingRole } = req.body;
+	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(accessingRole)) {
+		next(new TypeError(`Invalid request.`)); return;
+	}
+
+	const query = UserModel.findOne({ username: username, password: password, roles: accessingRole });
+
+	try {
+		const user = await query.then();
+		if (user) {
+			res.status(200).json({ userId: user.get("_id") });
+		} else {
+			res.status(403).json({});
+		}
+	}
+	catch (error) {
+		next(error);
+	}
 };
 
 /**
