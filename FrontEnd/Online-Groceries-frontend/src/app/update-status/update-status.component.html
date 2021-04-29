@@ -1,0 +1,24 @@
+<div>
+    <h2>Update Order Status</h2>
+    <form #updateOrder="ngForm" (ngSubmit)="updateOrderStatus(updateOrder.value)">
+        <mat-form-field appearance="standard">
+            <mat-label>Customer Order ID</mat-label>
+            <input matInput name="orderId" ngModel placeholder="Enter Customer Order ID">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Order Status</mat-label>
+            <select matNativeControl id="orderStatus">
+                <mat-option name="shipped" ngModel>Shipped</mat-option>
+                <mat-option name="delivering" ngModel>Out for Delivery</mat-option>
+                <mat-option name="delivered" ngModel>Delivered</mat-option>
+                <mat-option name="cancelled" ngModel>cancelled</mat-option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Reason for order cancellation (if applicable)</mat-label>
+            <textarea matInput name="cancellationMsg" ngModel placeholder="Please give a short description of why this order was cancelled."></textarea>
+        </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+    {{updateMsg}}
+</div>
