@@ -8,6 +8,7 @@ const mongoUrl = "mongodb://localhost:27017/meanstack";
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // MongoDB
 mongoose.connect(mongoUrl, {
