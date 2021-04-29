@@ -25,7 +25,10 @@ exports.getAll = async (req, res, next) => {
  */
 exports.getById = (req, res, next) => {
 	const productId = req.query.productId;
-	if (productId === undefined) { next(TypeError(`Invalid productId. params: ${JSON.stringify(req.params)}`)); return; }
+	if (productId === undefined) {
+		next(new TypeError(`Invalid productId. params: ${JSON.stringify(req.params)}`));
+		return;
+	}
 
 	const query = InventoryModel.findById(productId);
 	query.exec()
@@ -43,7 +46,7 @@ exports.addOne = (req, res, next) => {
 	[price, stockInventory] = [Number(price), Number(stockInventory)];
 
 	if (typeof name !== "string" || isNaN(price) || isNaN(stockInventory)) {
-		next(TypeError(`Invalid request parameters, body: ${JSON.stringify(req.body)}`));
+		next(new TypeError(`Invalid request parameters, body: ${JSON.stringify(req.body)}`));
 		return;
 	}
 
@@ -62,7 +65,7 @@ exports.updateById = (req, res, next) => {
 	let { productId, name, price, stockInventory } = req.body;
 	[price, stockInventory] = [Number(price), Number(stockInventory)];
 	if (typeof productId !== "string" || typeof name !== "string" || isNaN(price) || isNaN(stockInventory)) {
-		next(TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
+		next(new TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
 		return;
 	}
 
@@ -83,7 +86,10 @@ exports.updateById = (req, res, next) => {
  */
 exports.deleteById = (req, res, next) => {
 	const productId = req.params.productId;
-	if (productId === undefined) { next(TypeError(`Invalid productId`)); return; }
+	if (productId === undefined) {
+		next(new TypeError(`Invalid productId`));
+		return;
+	}
 
 	const query = InventoryModel.findByIdAndDelete(productId);
 	query.exec()
