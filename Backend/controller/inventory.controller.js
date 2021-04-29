@@ -85,9 +85,9 @@ exports.updateById = (req, res, next) => {
  * @param {NextFunction} next
  */
 exports.deleteById = (req, res, next) => {
-	const productId = req.params.productId;
+	const { productId } = req.query;
 	if (productId === undefined) {
-		next(new TypeError(`Invalid productId`));
+		next(new TypeError(`Invalid productId. params: ${JSON.stringify(req.params)}`));
 		return;
 	}
 
