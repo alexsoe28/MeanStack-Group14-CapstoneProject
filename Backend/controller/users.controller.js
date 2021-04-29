@@ -15,7 +15,7 @@ const { UserModel, UserRoles } = require("../model/users.model");
 exports.userSignup = (req, res, next) => {
 	let { username, password, role } = req.body;
 	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(role)) {
-		next(TypeError(`Invalid Signup Credentials.`)); return;
+		next(new TypeError(`Invalid Signup Credentials.`)); return;
 	}
 
 	UserModel.create({ username: username, password: password, roles: role })
@@ -40,7 +40,7 @@ exports.userLogin = (req, res, next) => {
 exports.unlockUserById = async (req, res, next) => {
 	let { userId } = req.body;
 	if (typeof userId !== "string") {
-		next(TypeError(`Invalid userId`)); return;
+		next(new TypeError(`Invalid userId`)); return;
 	}
 
 	try {
