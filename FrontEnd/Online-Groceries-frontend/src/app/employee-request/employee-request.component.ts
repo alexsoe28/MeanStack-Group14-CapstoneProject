@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService } from '../ticket.service';
+import { Ticket, TicketsService } from '../services/tickets/tickets.service';
 
 @Component({
   selector: 'app-employee-request',
@@ -8,13 +8,18 @@ import { TicketService } from '../ticket.service';
 })
 export class EmployeeRequestComponent implements OnInit {
   updateMsg?:string;
-  constructor(public ticketService:TicketService) { }
+  constructor(public ticketService:TicketsService) { }
 
   ngOnInit(): void {
   }
   sendRequest(restockRequest: any) {
-    // this.ticketService.sendTicket(restockRequest).subscribe((result:string) => {
-    //   this.updateMsg=result;
-    // });
+    let ticket:Ticket = {
+      _id: restockRequest.pId,
+      userId: restockRequest.userId,
+      ticketType: "adminRequest",
+      message: restockRequest.msg
+    };
+     this.ticketService.raiseAdminRequest(ticket);
+     this.updateMsg = "Ticket has been sent!";
   }
 }
