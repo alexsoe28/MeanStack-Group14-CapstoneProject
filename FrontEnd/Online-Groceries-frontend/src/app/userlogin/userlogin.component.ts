@@ -13,11 +13,11 @@ export class UserloginComponent implements OnInit {
   ngOnInit(): void {
   }
   loginUser(){
-    sessionStorage.setItem("token", "123");
-    this.router.navigate(["dashboard"]);
+    // sessionStorage.setItem("token", "123");
+    this.router.navigate(["user/dashboard"]);
   }
   signupRedirect(){
-    this.router.navigate(["signup"]);
+    this.router.navigate(["user/signup"]);
   }
 
 }
