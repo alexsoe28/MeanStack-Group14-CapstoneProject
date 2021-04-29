@@ -15,6 +15,12 @@ export class UsersService {
 
 	constructor(private http: HttpClient) { }
 
+  addUser(product: { fname: String, lname: String, dob: Date, username: String, password:String, role:String, status:String }) {
+		const url = this.host + this.endpoint + "/signup";
+		this.http.post(url, product)
+			.subscribe(result => console.log(result), error => console.error(error));
+	}
+
 	signIn(credentials: { username: String, password: String, role: UserRole }) {
 		const url = this.host + this.endpoint + "/login";
 		const payload = {

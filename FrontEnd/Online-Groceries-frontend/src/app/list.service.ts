@@ -9,7 +9,7 @@ export class ListService {
   constructor(public http:HttpClient) { }
 
   sendShoppingCart(list:any){
-    this.http.post("http://localhost:3000/ShoppingCart",list).
+    this.http.post("/orders/checkout",list).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 }

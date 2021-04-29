@@ -60,6 +60,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitCart(){
-    
+    let userid = localStorage.getItem("userid");
+
   }
 }
