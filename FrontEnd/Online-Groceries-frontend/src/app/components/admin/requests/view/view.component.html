@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<td>Ticket ID</td>
+			<td>User ID</td>
+			<td>Message</td>
+		</tr>
+	</thead>
+	<tbody *ngFor="let ticket of tickets">
+		<tr>
+			<td>{{ticket._id}}</td>
+			<td>{{ticket.userId}}</td>
+			<td>{{ticket.message}}</td>
+		</tr>
+	</tbody>
+</table>
