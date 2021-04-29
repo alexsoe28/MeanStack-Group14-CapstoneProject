@@ -1,0 +1,18 @@
+<div>
+    <h2>Edit User Profile</h2>
+    <form #updateProfile="ngForm" (ngSubmit)="changePassword(updateProfile.value)">
+        <mat-form-field>
+            <mat-label>Enter Current Password</mat-label>
+            <input matInput name="currentPass" [(ngModel)]="currentPass" placeholder="Enter your current password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter New Password</mat-label>
+            <input matInput name="updatedPass" [(ngModel)]="updatedPass" placeholder="Enter your new password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Re-enter New Password</mat-label>
+            <input matInput name="updatedPass2" [(ngModel)]="updatedPass2" placeholder="Re-enter your new password">
+        </mat-form-field>
+            <button mat-raised-button color="primary">Submit</button>
+    </form>
+</div>
