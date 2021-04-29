@@ -21,7 +21,7 @@ export class ShoppingPageComponent implements OnInit {
         updatedPrice = this.shoppingCart[i].price + produceObject.price;
         this.shoppingCart[i].price = updatedPrice;
         updated = true;
-        break;
+        return;
       }
     }
     if(updated == false){
