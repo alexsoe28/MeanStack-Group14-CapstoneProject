@@ -6,19 +6,20 @@
                 <th>Reason for lockout</th>
             </tr>
             <tr *ngFor="let user of users">
-                    <td>{{user._id}}</td>
-                    <td>{{user.lockOutMsg}}</td>
+                    <td>{{user.userId}}</td>
+                    <td>{{user.message}}</td>
             </tr>
     </table>
 </div>
 
 <!--Form that allows the user to enter userIds to unlock user-->
 <div>
-    <form #unlockUser="ngForm" (ngSubmit)="unlockUser(userId)">
+    <form #unlockUserById="ngForm" (ngSubmit)="unlockUser(unlockUserById.value)">
         <mat-form-field>
             <mat-label>Enter the User Id of the account to be unlocked</mat-label>
-            <input matInput name="userId" [(ngModel)]="userId" placeholder="Enter User Id">
+            <input matInput name="userId" ngModel placeholder="Enter User Id">
         </mat-form-field>
-        <button mat-raised-button color="primary">Submit</button>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
     </form>
+    {{updateMsg}}
 </div>

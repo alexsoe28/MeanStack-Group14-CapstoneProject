@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService } from '../ticket.service';
+import { Ticket, TicketsService } from '../services/tickets/tickets.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,20 +8,23 @@ import { UserService } from '../user.service';
   styleUrls: ['./unlock-user.component.css']
 })
 export class UnlockUserComponent implements OnInit {
-  updateMsg?:string
+  updateMsg?:string = "";
+  users: Array<Ticket> = [];
 
-  constructor(public ticketService:TicketService, public userService:UserService) { }
+  constructor(public ticketService:TicketsService, public userService:UserService) { }
 
   ngOnInit(): void {
   }
   getLockedUsers() {
-    // this.ticketService.getLockedUser().subscribe((result:string) => {
-    // });
-    // Populate table with this information
+    this.ticketService.getUserTickets().subscribe(result => {
+      this.users = result;
+    });
   }
 
-  unlockUser(userId: number) {
-    //this.userService.unlockUser(userId).subscribe((result:string) => console.log(result), (error:any) => console.log(error));
+  unlockUser(unlockUserById:any) {
+    let userId = unlockUserById.userId;
+    this.userService.unlockUser(userId);
+    this.updateMsg = "User has been unlocked!";
   }
 
 }

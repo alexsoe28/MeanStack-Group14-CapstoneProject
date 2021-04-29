@@ -14,9 +14,9 @@ export class UpdateStatusComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateStatus(updateOrder: any) {
-    //this.orderService.updateOrderStatus(updateOrder).subscribe((result:string) => {
-    //});
+  updateOrderStatus(updateOrder: any) {
+    this.orderService.updateOrderStatus(updateOrder);
+    this.updateMsg = "Status has been updated!";
   }
 
 }
