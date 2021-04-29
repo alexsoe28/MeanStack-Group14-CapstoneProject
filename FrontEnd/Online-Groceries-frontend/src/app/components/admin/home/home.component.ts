@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 		{
 			title: "Requests",
 			items: [
-				{title: "View Requests", routerLink: "addProducts"},
+				{title: "View Requests", routerLink: "viewAdminRequests"},
 			]
 		},
 	]

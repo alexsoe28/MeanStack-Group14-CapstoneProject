@@ -5,6 +5,7 @@ import { SignInComponent } from './components/admin/signin/signin.component';
 import { AddComponent as AdminAddProductComponent } from "./components/admin/products/add/add.component";
 import { UpdateComponent as AdminUpdateProductComponent } from "./components/admin/products/update/update.component";
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
+import { ViewComponent as ViewAdminRequestsComponent } from "./components/admin/requests/view/view.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
 			{ path: "addProducts", component: AdminAddProductComponent, outlet: "adminHome" },
 			{ path: "updateProducts", component: AdminUpdateProductComponent, outlet: "adminHome" },
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
+			{ path: "viewAdminRequests", component: ViewAdminRequestsComponent, outlet: "adminHome" },
 		]
 	},
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
