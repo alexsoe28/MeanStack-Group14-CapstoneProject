@@ -9,17 +9,13 @@ export class UserService {
 
   constructor(public http:HttpClient) { }
 
-  unlockUser(userId:number) {
+  unlockUser(userId:String) {
     return this.http.post(this.ipAddress+"/unlockUserById", userId, {responseType:"text"}).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
   updatePassword() {
     //Post password to Db
-  }
-
-  getLockedUsers() {
-    //Ping DB with get request and return locked users
   }
 
 }

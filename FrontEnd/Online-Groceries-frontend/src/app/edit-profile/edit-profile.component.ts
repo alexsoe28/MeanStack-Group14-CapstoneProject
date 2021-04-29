@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor(public userService:UserService, /*public router:Router*/) { }
+  constructor(public userService:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +22,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   logOut() {
-    //this.router.userLogin;
+    this.router.navigate(["employee/login"]);
   }
 
 }
