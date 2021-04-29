@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
+import { tap, catchError } from "rxjs/operators";
 
 @Injectable({
 	providedIn: 'root'
@@ -10,6 +12,15 @@ export class ProductsService {
 	endpoint = "/inventory";
 
 	constructor(private http: HttpClient) { }
+
+	getAll() {
+		const url = this.host + this.endpoint + "/getAll";
+		return this.http.get(url)
+			.pipe(
+				tap(data => console.log(data)),
+				catchError(error => throwError(error))
+			)
+	}
 
 	addProduct(product: { name: String, price: Number, stockInventory: Number }) {
 		const url = this.host + this.endpoint + "/addOne";
