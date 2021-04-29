@@ -26,15 +26,14 @@ const routes: Routes = [
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
 		]
 	},
+	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	// User
 	{ path: "user/browseShop", component: ShoppingPageComponent },
-	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
-	{ path: "user", redirectTo: "/user/browseShop", pathMatch: "full" },
-	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
-  { path: "user\login", component:UserloginComponent},
-  { path: "user\signup", component:UsersignupComponent},
-  { path: "user\dashboard", component:UserpanelComponent,canActivate:[loginAuthGuard]},
-  { path: "user", redirectTo:"\login",pathMatch:"full"}
+  { path: "user/browseShop/myCart", component: ShoppingCartComponent },
+	{ path: "user/login", component:UserloginComponent},
+	{ path: "user/signup", component:UsersignupComponent},
+	{ path: "user/dashboard", component:UserpanelComponent,canActivate:[loginAuthGuard]},
+	{ path: "user", redirectTo:"user/login",pathMatch:"full"}
 ];
 
 @NgModule({

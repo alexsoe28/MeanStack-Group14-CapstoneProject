@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../item.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-userpanel',
@@ -8,10 +8,11 @@ import { Item } from '../item.model';
 })
 export class UserpanelComponent implements OnInit {
 
-  item:Item = new Item(1001,"test", 100);
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
-
+  loginRedirect(){
+    this.router.navigate(["user/login"]);
+  }
 }
