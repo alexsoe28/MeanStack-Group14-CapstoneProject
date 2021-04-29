@@ -6,6 +6,7 @@ import { AddComponent as AdminAddProductComponent } from "./components/admin/pro
 import { UpdateComponent as AdminUpdateProductComponent } from "./components/admin/products/update/update.component";
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
 	},
 	// User
 	{ path: "user/browseShop", component: ShoppingPageComponent },
+	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
 	{ path: "user", redirectTo: "/user/browseShop", pathMatch: "full" },
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 ];
