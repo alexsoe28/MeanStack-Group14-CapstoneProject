@@ -23,5 +23,7 @@ export class UsersignupComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-
+  loginRedirect(){
+    this.router.navigate(["user/login"]);
+  }
 }

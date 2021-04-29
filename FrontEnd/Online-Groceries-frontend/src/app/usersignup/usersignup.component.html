@@ -8,18 +8,12 @@
             <br/>
             <mat-form-field>
                 <mat-label>Last Name</mat-label>
-                <input matInput type="password" name="lname" required ngModel/>
+                <input matInput type="password" name="lname" ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label>Username</mat-label>
                 <input matInput type="text" name="uname" required ngModel/>
-            </mat-form-field>
-            <br/>
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="email" name="email" required ngModel>
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <br/>
             <mat-form-field>
@@ -38,9 +32,11 @@
                 </button>
             </mat-form-field>
             <br/><br/>
+            <h3 class="error">{{msg}}</h3>
+            <br/>
             <div class="main"><button mat-raised-button color="primary" type="submit">Sign Up <mat-icon aria-hidden="false" aria-label="Signup">person_add</mat-icon></button></div>
         </form>
         <br/>
-        <h3>{{msg}}</h3>
+        <div class="row justify-content-center"><h3>Already have an account? <a [routerLink]="" (click)="loginRedirect()">Click here </a>to sign in</h3></div>
     </mat-card>
 </div>

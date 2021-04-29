@@ -14,7 +14,6 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { UsersignupComponent } from './usersignup/usersignup.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { loginAuthGuard } from './loginAuthGuard';
-import { ItemComponent } from './userpanel/item/item.component';
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { SignInComponent } from './components/admin/signin/signin.component';
 import { AddComponent } from './components/admin/products/add/add.component';
@@ -44,8 +43,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     // User
     UserloginComponent,
     UsersignupComponent,
-    UserpanelComponent,
-    ItemComponent
+    UserpanelComponent
   ],
     imports: [
       BrowserModule,
