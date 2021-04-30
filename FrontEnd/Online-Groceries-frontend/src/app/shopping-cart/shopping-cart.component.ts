@@ -63,7 +63,7 @@ export class ShoppingCartComponent implements OnInit {
 
   submitCart(){
     let userid = localStorage.getItem('userid');
-    if(localStorage.getItem('shoppingCart')){
+    if(localStorage.getItem('shoppingCart') && userid !== null){
       this.shoppingCart=JSON.parse(localStorage['shoppingCart']);
     }
     else{
