@@ -101,23 +101,14 @@ exports.updateDetails = async (req, res, next) => {
 	}, {})
 	console.log(payload);
 
-	try {
-		const updated = await UserModel.findByIdAndUpdate(userId, payload, { new: true });
-		const user = await UserModel.findById(userId, null);
-		if (updated === null) {
-			res.send({ error: "User does not exist" }); return;
-		} else {
-
-			// if (username !== undefined) { user.username = username };
-			// if (password !== undefined) { user.password = password };
-			// if (email !== undefined) { user.contact.email = email };
-			// if (fName !== undefined) { user.contact.firstName = fName };
-			// if (lName !== undefined) { user.contact.lastName = lName };
-
-			res.status(200).json(updated);
-		}
-	} catch (error) {
-		next(error);
-	}
-
+	const update = UserModel.findByIdAndUpdate(userId, payload, { new: true });
+	update.exec()
+		.then(doc => {
+			if (doc === null) {
+				res.send({ error: "User does not exist" }); return;
+			} else {
+				res.status(200).json(doc);
+			}
+		})
+		.catch(next);
 };
