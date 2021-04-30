@@ -15,4 +15,12 @@ export class UserpanelComponent implements OnInit {
   loginRedirect(){
     this.router.navigate(["user/login"]);
   }
+  userPanelRedirect(location:string){
+    if(location == 'Shop'){
+      this.router.navigate(["user/browseShop"]);
+    }
+    else if(location == 'Cart'){
+      this.router.navigate(["user/browseShop/myCart"]);
+    }
+  }
 }

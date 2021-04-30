@@ -4,6 +4,7 @@ import { of, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 export type UserRole = "admin" | "customer" | "employee";
+export type UserStatus = "normal" | "locked";
 
 @Injectable({
 	providedIn: 'root'
@@ -12,13 +13,13 @@ export class UsersService {
 
 	host = "http://localhost:9090";
 	endpoint = "/users";
-
+  
 	constructor(private http: HttpClient) { }
 
-	addUser(product: { fname: String, lname: String, dob: Date, username: String, password: String, role: String, status: String }) {
-		const url = this.host + this.endpoint + "/signup";
-		this.http.post(url, product)
-			.subscribe(result => console.log(result), error => console.error(error));
+	addUser(user: { role: String, status: UserStatus, username: String, password: String, contact: { firstname: String, lastname: String, dob: Date } }) {
+		const url = this.host + this.endpoint + "/register";
+		return this.http.post(url, user)
+			.subscribe(result => console.table(result), error => console.error(error));
 	}
 
 	signIn(credentials: { username: String, password: String, role: UserRole }) {
@@ -52,4 +53,5 @@ export class UsersService {
 				catchError(error => throwError(error))
 			)
 	}
+
 }
