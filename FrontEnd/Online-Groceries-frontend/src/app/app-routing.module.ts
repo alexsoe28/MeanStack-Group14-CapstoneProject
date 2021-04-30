@@ -7,10 +7,16 @@ import { UpdateComponent as AdminUpdateProductComponent } from "./components/adm
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { RootComponent } from './components/root/root.component';
+import { LoginComponent } from './components/employee/login/login/login.component';
+import { PanelComponent } from './components/employee/panel/panel/panel.component';
+
 
 const routes: Routes = [
 	// Root
 	{ path: "", component: RootComponent },
+	// Employee
+	{ path: "employee/login", component: LoginComponent },
+	{ path: "employee/panel", component: PanelComponent },
 	// Admin
 	{ path: "admin/signin", component: SignInComponent },
 	{
@@ -25,6 +31,9 @@ const routes: Routes = [
 	{ path: "user/browseShop", component: ShoppingPageComponent },
 	{ path: "user", redirectTo: "/user/browseShop", pathMatch: "full" },
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
+	{ path: "employee", redirectTo: "/employee/login", pathMatch: "full" }
+
+
 ];
 
 @NgModule({

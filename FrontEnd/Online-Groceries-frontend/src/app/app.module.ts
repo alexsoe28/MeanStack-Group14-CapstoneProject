@@ -17,6 +17,9 @@ import { RootComponent } from './components/root/root.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { LoginComponent } from './components/employee/login/login/login.component';
+import { PanelComponent } from './components/employee/panel/panel/panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ShoppingPageComponent,
     ShoppingCartComponent,
     RootComponent,
+    LoginComponent,
+    PanelComponent
   ],
     imports: [
       BrowserModule,
