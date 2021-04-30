@@ -12,7 +12,8 @@ export class ShoppingCartComponent implements OnInit {
   checkoutOrder:Array<any> = [];
   displayedColumns: string[] = ['name', 'quantity', 'price'];
   invalidDeleteItem = false;
-  invalidUpdateItem = false;
+  updateErrorMsg = "";
+  checkoutComplete = false;
 
   constructor(public ordersService:OrdersService) { }
 
@@ -47,6 +48,10 @@ export class ShoppingCartComponent implements OnInit {
       let oldPrice = this.shoppingCart[i].price;
       let oldQuantity = this.shoppingCart[i].quantity;
       if(this.shoppingCart[i].name == groceryItem.name){
+        if(groceryItem.quantity > this.shoppingCart[i].stockInventory){
+          this.updateErrorMsg = "Exceeds stock inventory of " + this.shoppingCart[i].name;
+          return;
+        }
         this.shoppingCart[i].quantity = groceryItem.quantity;
         let retailPrice = parseFloat((oldPrice/oldQuantity).toFixed(2));
         this.shoppingCart[i].price = retailPrice * groceryItem.quantity;
@@ -57,7 +62,7 @@ export class ShoppingCartComponent implements OnInit {
       }
     }
     if(!itemUpdated){
-      this.invalidUpdateItem = true;
+      this.updateErrorMsg = "No such item in cart!";
     }
   }
 
@@ -74,6 +79,6 @@ export class ShoppingCartComponent implements OnInit {
       this.checkoutOrder.push(orderObject);
     }
     this.ordersService.checkout({userId:userid, cart:this.checkoutOrder});
-    console.log({userId:userid, cart:this.checkoutOrder});
+    localStorage.removeItem("shoppingCart");
   }
 }

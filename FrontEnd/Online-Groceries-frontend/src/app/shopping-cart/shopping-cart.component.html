@@ -18,7 +18,7 @@
         <label style="font-size:20px; padding-right: 20px; padding-left: 20px;">Quantity</label>
         <input type="number" ngModel id="quantity" name="quantity"><br>
         <button style="padding: 0px 8px;"mat-button type="submit">Update!</button>
-        <p style="color:red" [style.visibility]="invalidUpdateItem ? 'visible':'hidden'">No such item in Shopping Cart!</p>
+        <p style="color:red">{{updateErrorMsg}}</p>
     </div>
 </form>
 
@@ -42,4 +42,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 </table>
-<button mat-button style="margin-left:auto; margin-right:auto; display: block;" type="submit" (click)="submitCart()">Checkout</button>
+<button mat-button style="margin-left:auto; margin-right:auto; display: block;" type="submit" routerLink="/user/browseShop/" (click)="submitCart()">Checkout</button>
