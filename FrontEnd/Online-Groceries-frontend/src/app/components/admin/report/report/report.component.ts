@@ -9,7 +9,7 @@ import { Order, OrdersService } from 'src/app/services/orders/orders.service';
 export class ReportComponent implements OnInit {
 
 	orders: Order[] = [];
-	orderColumn = ["orderId", "userId", "timestamp"];
+	orderColumn = ["orderId", "userId", "status", "timestamp"];
 
 	constructor(private ordersService: OrdersService) { }
 

@@ -8,6 +8,7 @@ export interface Order {
 	timestamp: String,
 	userId: String,
 	cart: { quantity: Number, _id: String }[]
+	status: String,
 }
 @Injectable({
 	providedIn: 'root'
