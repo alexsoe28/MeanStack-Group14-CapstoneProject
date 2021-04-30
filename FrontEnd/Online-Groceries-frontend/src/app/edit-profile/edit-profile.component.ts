@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UsersService } from '../services/users/users.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -8,17 +8,26 @@ import { UserService } from '../user.service';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+  updateMsg?:String = "";
 
-  constructor(public userService:UserService, public router:Router) { }
+  constructor(public userService:UsersService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  changePassword(/*form: any*/) {
-    // this.userService.checkPassword(password).subscribe((result:string) => {
-    // });
-    // this.userService.updatePassword(password).subscribe((result:string) => {
-    // });
+  changePassword(updateProfile: any) {
+    if (updateProfile.updatedPass == updateProfile.updatedPass2) {
+      let userDetails = {
+        userId: updateProfile.userId,
+        password: updateProfile.updatedPass
+      };
+      this.userService.updateUserDetails(userDetails);
+      this.updateMsg = "Password successfully updated!";
+    }
+    else {
+      this.updateMsg = "Password was unable to be updated :(";
+    }
+    
   }
 
   logOut() {
