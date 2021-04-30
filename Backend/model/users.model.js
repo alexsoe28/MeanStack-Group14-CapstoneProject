@@ -14,6 +14,7 @@ const UserSchema = mongoose.Schema({
 	contact: {
 		firstName: { type: String },
 		lastName: { type: String },
+		email: { type: String },
 		dob: { type: Date },
 	}
 
