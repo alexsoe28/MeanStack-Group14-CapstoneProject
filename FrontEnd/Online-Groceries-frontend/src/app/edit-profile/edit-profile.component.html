@@ -1,6 +1,10 @@
-<!--<div>
+<div>
     <h2>Edit User Profile</h2>
     <form #updateProfile="ngForm" (ngSubmit)="changePassword(updateProfile.value)">
+        <mat-form-field>
+            <mat-label>Enter User ID</mat-label>
+            <input matInput name="userId" type="text" ngModel placeholder="Enter your User ID" required>
+        </mat-form-field>
         <mat-form-field>
             <mat-label>Enter Current Password</mat-label>
             <input matInput name="currentPass" type="password" ngModel placeholder="Enter your current password" required>
@@ -16,4 +20,5 @@
             <button mat-raised-button color="primary">Submit</button><br/>
             <button mat-raised-button color="warn" (click)="logOut()">Log Out</button>
     </form>
-</div>-->
+    {{updateMsg}}
+</div>
