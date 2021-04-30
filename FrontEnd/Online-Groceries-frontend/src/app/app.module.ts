@@ -31,6 +31,7 @@ import { EmployeeRequestComponent } from './employee-request/employee-request.co
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { UnlockUserComponent } from './unlock-user/unlock-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ListComponent } from './components/admin/products/list/list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     EmployeeRequestComponent,
     UpdateStatusComponent,
     UnlockUserComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ListComponent
   ],
     imports: [
       BrowserModule,

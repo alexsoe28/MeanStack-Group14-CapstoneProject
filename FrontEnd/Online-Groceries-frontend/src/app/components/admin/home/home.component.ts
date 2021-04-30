@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 				{title: "Add Products", routerLink: "addProducts"},
 				{title: "Update Products", routerLink: "updateProducts"},
 				{title: "Delete Products", routerLink: "deleteProducts"},
+				{title: "List Products", routerLink: "listProducts"},
 			]
 		},
 		{
