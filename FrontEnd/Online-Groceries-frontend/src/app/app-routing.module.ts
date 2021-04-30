@@ -54,6 +54,7 @@ const routes: Routes = [
 	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
 	{ path: "user/login", component: UserloginComponent },
 	{ path: "user/signup", component: UsersignupComponent },
+  { path: "user/lockUser", component:UserloginComponent},
 	{ path: "user/dashboard", component: UserpanelComponent },
 	{ path: "user/editProfile", component: EditProfileComponent },
 	{ path: "user/addFunds", component: AddfundsComponent },

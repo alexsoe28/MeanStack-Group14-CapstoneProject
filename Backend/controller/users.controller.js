@@ -30,7 +30,6 @@ exports.userSignup = (req, res, next) => {
  */
 exports.userLogin = async (req, res, next) => {
 	let { username, password, accessingRole } = req.body;
-
 	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(accessingRole)) {
 		next(new TypeError(`Invalid request.`)); return;
 	}
@@ -40,7 +39,7 @@ exports.userLogin = async (req, res, next) => {
 	try {
 		const user = await query.then();
 		if (user) {
-			res.status(200).json({ userId: user.get("_id") });
+			res.status(200).json({ userId: user.get("_id"), status: user.get("status") });
 		} else {
 			res.status(403).json({});
 		}
@@ -67,6 +66,26 @@ exports.unlockUserById = async (req, res, next) => {
 			res.send({ error: "User does not exist" }); return;
 		} else {
 			const doc = await user.updateOne({ status: "normal" }).exec();
+			res.status(200).send(doc);
+		}
+	} catch (error) {
+		next(error);
+	}
+
+};
+
+exports.lockUserByUname = async (req, res, next) => {
+	let { username } = req.body;
+	if (typeof username !== "string") {
+		next(new TypeError(`Invalid username`)); return;
+	}
+
+	try {
+		const user = await UserModel.findById(username);
+		if (user === undefined) {
+			res.send({ error: "User does not exist" }); return;
+		} else {
+			const doc = await user.updateOne({ status: "locked" }).exec();
 			res.status(200).send(doc);
 		}
 	} catch (error) {

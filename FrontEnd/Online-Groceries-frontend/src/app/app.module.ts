@@ -34,6 +34,9 @@ import { EditProfileComponent } from './components/employee/edit-profile/edit-pr
 import { ListComponent } from './components/admin/products/list/list.component';
 import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
 import { ReportComponent } from './components/admin/report/report/report.component';
+import { AddEmplopyeeComponent } from './components/admin/add-emplopyee/add-emplopyee.component';
+import { DeleteEmplopyeeComponent } from './components/admin/delete-emplopyee/delete-emplopyee.component';
+import { GenerateReportComponent } from './components/admin/generate-report/generate-report.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { ReportComponent } from './components/admin/report/report/report.compone
     UpdateComponent,
     ViewComponent,
     HomeComponent,
+    AddEmplopyeeComponent,
+    DeleteEmplopyeeComponent,
+    GenerateReportComponent,
 
     //  Shopping Cart
     ShoppingPageComponent,
@@ -66,6 +72,7 @@ import { ReportComponent } from './components/admin/report/report/report.compone
     ListComponent,
     AddfundsComponent,
     ReportComponent
+
   ],
     imports: [
       BrowserModule,

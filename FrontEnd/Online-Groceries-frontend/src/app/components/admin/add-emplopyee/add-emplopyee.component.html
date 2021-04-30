@@ -1,0 +1,43 @@
+<div class="signup justify-content-center">
+    <mat-card>
+        <form [formGroup]="addEmpForm" (ngSubmit)="registerEmp()">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="fname" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" formControlName="lname" ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput type="date" formControlName="dob" ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput type="text" formControlName="uname" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hidepass ? 'password' : 'text'" formControlName="password" required ngModel>
+                <button mat-icon-button matSuffix (click)="hidepass = !hidepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidepass">
+                    <mat-icon>{{hidepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Re-Enter Password</mat-label>
+                <input matInput [type]="hiderepass ? 'password' : 'text'" formControlName="repassword" required ngModel>
+                <button mat-icon-button matSuffix (click)="hiderepass = !hiderepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hiderepass">
+                    <mat-icon>{{hiderepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br/><br/>
+            <div class="main"><button mat-raised-button color="primary" type="submit">Add Employee <mat-icon aria-hidden="false" aria-label="Signup">person_add</mat-icon></button></div>
+        </form>
+    </mat-card>
+</div>
