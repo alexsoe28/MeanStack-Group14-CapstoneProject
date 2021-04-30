@@ -5,18 +5,22 @@
             <mat-label>Enter User ID</mat-label>
             <input matInput name="userId" type="text" ngModel placeholder="Enter your User ID" required>
         </mat-form-field>
+        <br/>
         <mat-form-field>
             <mat-label>Enter Current Password</mat-label>
             <input matInput name="currentPass" type="password" ngModel placeholder="Enter your current password" required>
         </mat-form-field>
+        <br/>
         <mat-form-field>
             <mat-label>Enter New Password</mat-label>
             <input matInput name="updatedPass" type="password" ngModel placeholder="Enter your new password" required>
         </mat-form-field>
+        <br/>
         <mat-form-field>
             <mat-label>Re-enter New Password</mat-label>
             <input matInput name="updatedPass2" type="password" ngModel placeholder="Re-enter your new password" required>
         </mat-form-field>
+        <br/>
             <button mat-raised-button color="primary">Submit</button><br/>
             <button mat-raised-button color="warn" (click)="logOut()">Log Out</button>
     </form>
