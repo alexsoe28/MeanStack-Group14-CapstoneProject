@@ -12,13 +12,13 @@ const { UserModel, UserRoles } = require("../model/users.model");
  * @param {NextFunction} next 
  */
 exports.userSignup = (req, res, next) => {
-	let { role, status, username, password, contact: {firstname, lastname, dob} } = req.body;
+	let { role, status, username, password, contact: { firstname, lastname, dob } } = req.body;
 	console.log(req.body)
 	if (typeof username == "" || typeof password == "" || !UserRoles.includes(role)) {
 		next(new TypeError(`Invalid Signup Credentials.`)); return;
 	}
 
-	UserModel.create({ username: username, password: password, roles: role, status: status, contact:{ firstname: firstname, lastname: lastname, dob: dob} })
+	UserModel.create({ username: username, password: password, roles: role, status: status, contact: { firstname: firstname, lastname: lastname, dob: dob } })
 		.then(doc => res.status(200).json((({ _id, username }) => ({ _id, username }))(doc)))
 		.catch(next)
 };
@@ -30,7 +30,7 @@ exports.userSignup = (req, res, next) => {
  */
 exports.userLogin = async (req, res, next) => {
 	let { username, password, accessingRole } = req.body;
-	
+
 	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(accessingRole)) {
 		next(new TypeError(`Invalid request.`)); return;
 	}
@@ -80,10 +80,28 @@ exports.unlockUserById = async (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next 
  */
+exports.getUserById = async (req, res, next) => {
+	let { userId } = req.body;
+	if (typeof userId !== "string") {
+		next(new TypeError(`Invalid request.`)); return;
+	}
+
+	UserModel.findById(userId).exec()
+		.then(doc => {
+			if (doc === null) { res.status(404).send(); }
+			else { res.status(200).json(doc); }
+		})
+		.catch(next);
+}
+
+/**
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
 exports.updateDetails = async (req, res, next) => {
 	let { userId, fName, lName, email, username, password, wallet } = req.body;
 	const invalidKeys = [fName, lName, email, username, password].findIndex(item => !(typeof item === "string" || item === undefined));
-	console.log(invalidKeys);
 	const walletCheck = typeof wallet === "number" || typeof wallet === "string" || wallet === undefined;
 	if (typeof userId !== "string" || invalidKeys !== -1 || !walletCheck) {
 		next(new TypeError(`Invalid request.`)); return;
@@ -103,7 +121,6 @@ exports.updateDetails = async (req, res, next) => {
 		}
 		return obj;
 	}, {})
-	console.log(payload);
 
 	const update = UserModel.findByIdAndUpdate(userId, payload, { new: true });
 	update.exec()

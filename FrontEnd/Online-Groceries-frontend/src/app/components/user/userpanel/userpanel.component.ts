@@ -25,5 +25,8 @@ export class UserpanelComponent implements OnInit {
 		else if (location == 'EditProfile') {
 			this.router.navigate(["user/editProfile"]);
 		}
+		else if (location == 'AddFunds') {
+			this.router.navigate(["user/addFunds"]);
+		}
 	}
 }

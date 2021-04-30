@@ -17,6 +17,7 @@ import { UserloginComponent } from './components/user/userlogin/userlogin.compon
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
 import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
+import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
 
 const routes: Routes = [
 	// Root
@@ -46,6 +47,7 @@ const routes: Routes = [
 	{ path: "user/signup", component: UsersignupComponent },
 	{ path: "user/dashboard", component: UserpanelComponent },
 	{ path: "user/editProfile", component: EditProfileComponent },
+	{ path: "user/addFunds", component: AddfundsComponent },
 
 ];
 
