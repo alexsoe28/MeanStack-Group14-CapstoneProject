@@ -13,12 +13,13 @@ const { UserModel, UserRoles } = require("../model/users.model");
  * @param {NextFunction} next 
  */
 exports.userSignup = (req, res, next) => {
-	let { username, password, role } = req.body;
-	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(role)) {
+	let { role, status, username, password, contact: {firstname, lastname, dob} } = req.body;
+	console.log(req.body)
+	if (typeof username == "" || typeof password == "" || !UserRoles.includes(role)) {
 		next(new TypeError(`Invalid Signup Credentials.`)); return;
 	}
 
-	UserModel.create({ username: username, password: password, roles: role })
+	UserModel.create({ username: username, password: password, roles: role, status: status, contact:{ firstname: firstname, lastname: lastname, dob: dob} })
 		.then(doc => res.status(200).json((({ _id, username }) => ({ _id, username }))(doc)))
 		.catch(next)
 };
@@ -30,6 +31,7 @@ exports.userSignup = (req, res, next) => {
  */
 exports.userLogin = async (req, res, next) => {
 	let { username, password, accessingRole } = req.body;
+	
 	if (typeof username !== "string" || typeof password !== "string" || !UserRoles.includes(accessingRole)) {
 		next(new TypeError(`Invalid request.`)); return;
 	}

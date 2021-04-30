@@ -34,7 +34,7 @@ const routes: Routes = [
   	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
 	{ path: "user/login", component:UserloginComponent},
 	{ path: "user/signup", component:UsersignupComponent},
-	{ path: "user/dashboard", component:UserpanelComponent,canActivate:[loginAuthGuard]},
+	{ path: "user/dashboard", component:UserpanelComponent},
 	{ path: "user", redirectTo:"user/login",pathMatch:"full"}
 ];
 
