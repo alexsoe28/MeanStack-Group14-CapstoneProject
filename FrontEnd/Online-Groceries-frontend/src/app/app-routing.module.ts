@@ -5,19 +5,26 @@ import { SignInComponent } from './components/admin/signin/signin.component';
 import { AddComponent as AdminAddProductComponent } from "./components/admin/products/add/add.component";
 import { UpdateComponent as AdminUpdateProductComponent } from "./components/admin/products/update/update.component";
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
+import { ViewComponent as ViewAdminRequestsComponent } from "./components/admin/requests/view/view.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
 import { LoginComponent } from './components/employee/login/login/login.component';
 import { PanelComponent } from './components/employee/panel/panel/panel.component';
-
+import { loginAuthGuard } from './loginAuthGuard';
+import { UserloginComponent } from './components/user/userlogin/userlogin.component';
+import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
+import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 
 const routes: Routes = [
 	// Root
 	{ path: "", component: RootComponent },
 	// Employee
+	{ path: "employee", redirectTo: "/employee/login", pathMatch: "full" },
 	{ path: "employee/login", component: LoginComponent },
 	{ path: "employee/panel", component: PanelComponent },
 	// Admin
+	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	{ path: "admin/signin", component: SignInComponent },
 	{
 		path: "admin/home", component: HomeComponent,
@@ -25,15 +32,16 @@ const routes: Routes = [
 			{ path: "addProducts", component: AdminAddProductComponent, outlet: "adminHome" },
 			{ path: "updateProducts", component: AdminUpdateProductComponent, outlet: "adminHome" },
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
+			{ path: "viewAdminRequests", component: ViewAdminRequestsComponent, outlet: "adminHome" },
 		]
 	},
 	// User
+	{ path: "user", redirectTo: "user/login", pathMatch: "full" },
 	{ path: "user/browseShop", component: ShoppingPageComponent },
-	{ path: "user", redirectTo: "/user/browseShop", pathMatch: "full" },
-	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
-	{ path: "employee", redirectTo: "/employee/login", pathMatch: "full" }
-
-
+	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
+	{ path: "user/login", component: UserloginComponent },
+	{ path: "user/signup", component: UsersignupComponent },
+	{ path: "user/dashboard", component: UserpanelComponent, canActivate: [loginAuthGuard] },
 ];
 
 @NgModule({

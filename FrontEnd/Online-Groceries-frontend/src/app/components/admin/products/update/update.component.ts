@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-update',
@@ -15,7 +16,7 @@ export class UpdateComponent implements OnInit {
 		quantity: ['', [Validators.required]],
 	})
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private productsService: ProductsService) { }
 
   ngOnInit(): void { }
 
@@ -30,11 +31,13 @@ export class UpdateComponent implements OnInit {
 			console.debug("invalid ctrl: ", invalidCtrl);
 		} else {
 			const product = {
-				productId: productId.value,
-				name: name.value,
-				price: price.value,
-				quantity: quantity.value,
+				productId: productId.value as String,
+				name: name.value as String,
+				price: price.value as Number,
+				stockInventory: quantity.value as Number,
 			}
+
+			this.productsService.updateProduct(product);
 			console.table(product);
 		}
 	}

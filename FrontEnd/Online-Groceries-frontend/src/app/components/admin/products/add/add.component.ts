@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
 	selector: 'app-add',
@@ -14,7 +15,7 @@ export class AddComponent implements OnInit {
 		quantity: ['', [Validators.required]],
 	})
 
-	constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder, private productsService: ProductsService) { }
 
 	ngOnInit(): void { }
 
@@ -29,10 +30,12 @@ export class AddComponent implements OnInit {
 			console.debug("invalid ctrl: ", invalidCtrl);
 		} else {
 			const product = {
-				name: name.value,
-				price: price.value,
-				quantity: quantity.value,
+				name: name.value as String,
+				price: price.value as Number,
+				stockInventory: quantity.value as Number,
 			}
+
+			this.productsService.addProduct(product);
 			console.table(product);
 		}
 	}

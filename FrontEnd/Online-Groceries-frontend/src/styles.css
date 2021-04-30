@@ -1,1 +1,119 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* You can add global styles to this file, and also import other style files */
+form input,
+form textarea {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: inline;
+  justify-content: center;
+  border: none;
+  padding: 20px;
+  width: fit-content;
+  margin-bottom: 20px;
+  font-size: 18px;
+  background-color: rgb(230, 230, 230);
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  align-content: center;
+}
+
+/* .login {
+  margin: auto;
+  width: fit-content;
+  top: 100%;
+  size: 20px;
+  transform: translate(0, 100%);
+  text-align: center;
+  display: block;
+} */
+.signup {
+  margin: auto;
+  width: fit-content;
+  top: 50%;
+  size: 20px;
+  transform: translate(0, 50%);
+  text-align: center;
+  display: block;
+}
+.login {
+  margin-top: 80px;
+  text-align: center;
+  justify-content: center;
+}
+.login.container {
+  width: fit-content;
+  display: inline-block;
+}
+.main {
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+}
+.logout {
+  align-self: end;
+}
+/* .page-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  size: 20px;
+  font-size: xx-large;
+  text-align: center;
+  max-width: 100%;
+} */
+.description {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: italic;
+  text-align: center;
+}
+button {
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  color: #fff;
+  padding: 20px;
+  width: 400px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.options {
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #3650c4;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.exit {
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  float: left;
+  background: #e03434;
+  color: #fff;
+  padding: 10px;
+  width: 160px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+button:hover {
+  background: #474747;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none; /* no underline */
+}
