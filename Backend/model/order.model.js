@@ -11,6 +11,7 @@ const OrderItemSchema = mongoose.Schema({
 const OrderSchema = mongoose.Schema({
 	userId: { type: mongoose.Types.ObjectId, required: true },
 	cart: { type: [OrderItemSchema], required: true },
+	timestamp: { type: Date, default: Date.now() },
 	status: { type: String, enum: OrderStatus, required: true, alias: "orderStatus" },
 })
 
