@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserRole, UsersService } from 'src/app/services/users/users.service';
 
 @Component({
 	selector: 'app-signin',
@@ -14,7 +15,7 @@ export class SignInComponent implements OnInit {
 		password: ['', [Validators.required]],
 	})
 
-	constructor(private fb: FormBuilder, private router: Router) { }
+	constructor(private fb: FormBuilder, private router: Router, private usersService: UsersService) { }
 
 	ngOnInit(): void { }
 
@@ -27,7 +28,22 @@ export class SignInComponent implements OnInit {
 		if (invalid !== undefined) {
 			alert("Wrong credentials.");
 		} else {
-			this.router.navigate(['/admin/home']);
+
+			const credentials = {
+				username: username.value as String,
+				password: password.value as String,
+				role: "admin" as UserRole,
+			}
+
+			this.usersService.signIn(credentials)
+				.subscribe(({ userId }) => {
+					if (userId === undefined) {
+						console.log("wrong username / password");
+					} else {
+						console.log(`logged in as userId: ${userId}`);
+						this.router.navigate(['/admin/home']);
+					}
+				})
 		}
 	}
 

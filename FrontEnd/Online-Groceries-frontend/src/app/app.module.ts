@@ -11,9 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { UserloginComponent } from './userlogin/userlogin.component';
-import { UsersignupComponent } from './usersignup/usersignup.component';
-import { UserpanelComponent } from './userpanel/userpanel.component';
+import { UserloginComponent } from './components/user/userlogin/userlogin.component';
+import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
+import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
 import { loginAuthGuard } from './loginAuthGuard';
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { SignInComponent } from './components/admin/signin/signin.component';
@@ -24,10 +24,14 @@ import { ViewComponent } from './components/admin/requests/view/view.component';
 import { HomeComponent } from './components/admin/home/home.component';
 import { RootComponent } from './components/root/root.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { EmployeeRequestComponent } from './employee-request/employee-request.component';
+import { UpdateStatusComponent } from './update-status/update-status.component';
+import { UnlockUserComponent } from './unlock-user/unlock-user.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
     // Admin
     SignInComponent,
     AddComponent,
@@ -40,11 +44,15 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ShoppingPageComponent,
     ShoppingCartComponent,
     RootComponent,
-    
+
     // User
     UserloginComponent,
     UsersignupComponent,
-    UserpanelComponent
+    UserpanelComponent,
+    EmployeeRequestComponent,
+    UpdateStatusComponent,
+    UnlockUserComponent,
+    EditProfileComponent
   ],
     imports: [
       BrowserModule,
