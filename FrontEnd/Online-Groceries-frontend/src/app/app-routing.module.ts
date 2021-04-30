@@ -16,7 +16,7 @@ import { loginAuthGuard } from './loginAuthGuard';
 import { UserloginComponent } from './components/user/userlogin/userlogin.component';
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
 import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 
 const routes: Routes = [
 	// Root

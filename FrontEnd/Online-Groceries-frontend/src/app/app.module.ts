@@ -30,7 +30,7 @@ import { PanelComponent } from './components/employee/panel/panel/panel.componen
 import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { UnlockUserComponent } from './unlock-user/unlock-user.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 import { ListComponent } from './components/admin/products/list/list.component';
 
 @NgModule({
