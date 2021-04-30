@@ -81,10 +81,11 @@ exports.unlockUserById = async (req, res, next) => {
  * @param {NextFunction} next 
  */
 exports.updateDetails = async (req, res, next) => {
-	let { userId, fName, lName, email, username, password } = req.body;
+	let { userId, fName, lName, email, username, password, wallet } = req.body;
 	const invalidKeys = [fName, lName, email, username, password].findIndex(item => !(typeof item === "string" || item === undefined));
 	console.log(invalidKeys);
-	if (typeof userId !== "string" || invalidKeys !== -1) {
+	const walletCheck = typeof wallet === "number" || typeof wallet === "string" || wallet === undefined;
+	if (typeof userId !== "string" || invalidKeys !== -1 || !walletCheck) {
 		next(new TypeError(`Invalid request.`)); return;
 	}
 
@@ -92,6 +93,7 @@ exports.updateDetails = async (req, res, next) => {
 	const payload = [
 		[username, "username"],
 		[password, "password"],
+		[wallet, "wallet"],
 		[fName, "contact.firstName"],
 		[lName, "contact.lastName"],
 		[email, "contact.email"],
