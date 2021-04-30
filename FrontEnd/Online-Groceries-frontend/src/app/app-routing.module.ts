@@ -40,6 +40,7 @@ const routes: Routes = [
 	{ path: "user/browseShop", component: ShoppingPageComponent },
   { path: "user/browseShop/myCart", component: ShoppingCartComponent },
 	{ path: "user/login", component:UserloginComponent},
+	{ path: "user/lockUser", component:UserloginComponent},
 	{ path: "user/signup", component:UsersignupComponent},
 	{ path: "user/dashboard", component:UserpanelComponent},
 

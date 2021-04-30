@@ -1,0 +1,13 @@
+<div class="signup justify-content-center">
+    <mat-card>
+        <form [formGroup]="addEmpForm" (ngSubmit)="registerEmp()">
+            <mat-form-field>
+                <mat-label>User ID</mat-label>
+                <input matInput type="text" formControlName="userId" required ngModel/>
+            </mat-form-field>
+            <br/>
+            <br/><br/>
+            <div class="main"><button mat-raised-button color="primary" type="submit">Remove Employee</div>
+            </form>
+        </mat-card>
+    </div>

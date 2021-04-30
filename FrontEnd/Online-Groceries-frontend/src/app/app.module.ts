@@ -30,6 +30,9 @@ import { EmployeeRequestComponent } from './employee-request/employee-request.co
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { UnlockUserComponent } from './unlock-user/unlock-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddEmplopyeeComponent } from './components/admin/add-emplopyee/add-emplopyee.component';
+import { DeleteEmplopyeeComponent } from './components/admin/delete-emplopyee/delete-emplopyee.component';
+import { GenerateReportComponent } from './components/admin/generate-report/generate-report.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     EmployeeRequestComponent,
     UpdateStatusComponent,
     UnlockUserComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AddEmplopyeeComponent,
+    DeleteEmplopyeeComponent,
+    GenerateReportComponent
   ],
     imports: [
       BrowserModule,
