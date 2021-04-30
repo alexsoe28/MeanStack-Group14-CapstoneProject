@@ -36,6 +36,11 @@ exports.getById = (req, res, next) => {
 		.catch(next)
 }
 
+exports.getPriceById = (productId) => {
+	return InventoryModel.findById(productId)
+		.then(doc => (({ price }) => ({ price }))(doc) )
+}
+
 /**
  * @param {Request} req 
  * @param {Response} res 

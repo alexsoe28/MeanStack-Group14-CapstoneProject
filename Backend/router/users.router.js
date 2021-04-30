@@ -7,6 +7,7 @@ router.post("/register", UsersController.userSignup);
 router.post("/login", UsersController.userLogin);
 router.post("/unlockUserById", UsersController.unlockUserById);
 router.put("/updateUserDetails", UsersController.updateDetails);
+router.post("/getUserById", UsersController.updateDetails);
 
 // MARK: - Exports
 module.exports = router;

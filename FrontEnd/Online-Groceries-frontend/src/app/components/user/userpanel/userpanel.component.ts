@@ -2,25 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-userpanel',
-  templateUrl: './userpanel.component.html',
-  styleUrls: ['./userpanel.component.css']
+	selector: 'app-userpanel',
+	templateUrl: './userpanel.component.html',
+	styleUrls: ['./userpanel.component.css']
 })
 export class UserpanelComponent implements OnInit {
 
-  constructor(public router:Router) { }
+	constructor(public router: Router) { }
 
-  ngOnInit(): void {
-  }
-  loginRedirect(){
-    this.router.navigate(["user/login"]);
-  }
-  userPanelRedirect(location:string){
-    if(location == 'Shop'){
-      this.router.navigate(["user/browseShop"]);
-    }
-    else if(location == 'Cart'){
-      this.router.navigate(["user/browseShop/myCart"]);
-    }
-  }
+	ngOnInit(): void {
+	}
+	loginRedirect() {
+		this.router.navigate(["user/login"]);
+	}
+	userPanelRedirect(location: string) {
+		if (location == 'Shop') {
+			this.router.navigate(["user/browseShop"]);
+		}
+		else if (location == 'Cart') {
+			this.router.navigate(["user/browseShop/myCart"]);
+		}
+		else if (location == 'EditProfile') {
+			this.router.navigate(["user/editProfile"]);
+		}
+		else if (location == 'AddFunds') {
+			this.router.navigate(["user/addFunds"]);
+		}
+	}
 }
