@@ -26,12 +26,19 @@ export class OrdersService {
 			.subscribe(data => console.log(data), error => console.error(error));
 	}
 
-	getAll() {
+	getAll(date?: Date) {
 		const url = this.host + this.endpoint + "/getAll";
-		return this.http.get<Order[]>(url)
-			.pipe(
-				tap(data => console.log(data)),
-				catchError(error => throwError(error))
-			)
+		const request = (() => {
+			if (date) {
+				return this.http.get<Order[]>(url, { params: { date: date.toISOString() } });
+			} else {
+				return this.http.get<Order[]>(url);
+			}
+		})()
+
+		return request.pipe(
+			tap(data => console.log(data)),
+			catchError(error => throwError(error))
+		)
 	}
 }

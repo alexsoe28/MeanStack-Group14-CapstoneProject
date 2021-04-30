@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Order, OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class ReportComponent implements OnInit {
 	orders: Order[] = [];
 	orderColumn = ["orderId", "userId", "status", "timestamp"];
 
-	constructor(private ordersService: OrdersService) { }
+	reportQueryForm = this.fb.group({
+		date: ["", [Validators.required]],
+	})
+
+	constructor(private fb: FormBuilder, private ordersService: OrdersService) { }
 
 	ngOnInit(): void {
 		this.ordersService.getAll()

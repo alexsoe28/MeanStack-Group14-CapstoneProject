@@ -15,10 +15,10 @@ const { updateInventory, getPriceById } = require("./inventory.controller");
  * @param {NextFunction} next 
  */
 exports.getAll = (req, res, next) => {
-	// let { date } = req.body;
+	let { date } = req.query;
 
-	// const query = OrderModel.find({ timestamp: { $lte: date } })
-	const query = OrderModel.find()
+	const query = OrderModel.find({ timestamp: { $lte: date } })
+	// const query = OrderModel.find()
 	query.exec()
 		.then(doc => res.json(doc))
 		.catch(next)
