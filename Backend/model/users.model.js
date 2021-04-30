@@ -8,12 +8,15 @@ const UserSchema = mongoose.Schema({
 	roles: { type: String, enum: UserRoles, required: true },
 	status: { type: String, enum: AccountStatus, alias: "accountStatus", default: "normal" },
 
+	wallet: { type: Number, default: 1000 },
+
 	username: { type: String, required: true },
 	password: { type: String, required: true },
 
 	contact: {
 		firstName: { type: String },
 		lastName: { type: String },
+		email: { type: String },
 		dob: { type: Date },
 	}
 

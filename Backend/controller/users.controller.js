@@ -1,4 +1,3 @@
-const e = require("express");
 const { UserModel, UserRoles } = require("../model/users.model");
 
 /** 
@@ -74,4 +73,44 @@ exports.unlockUserById = async (req, res, next) => {
 		next(error);
 	}
 
+};
+
+/**
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
+exports.updateDetails = async (req, res, next) => {
+	let { userId, fName, lName, email, username, password } = req.body;
+	const invalidKeys = [fName, lName, email, username, password].findIndex(item => !(typeof item === "string" || item === undefined));
+	console.log(invalidKeys);
+	if (typeof userId !== "string" || invalidKeys !== -1) {
+		next(new TypeError(`Invalid request.`)); return;
+	}
+
+	/** @type {[key: string]: string} */
+	const payload = [
+		[username, "username"],
+		[password, "password"],
+		[fName, "contact.firstName"],
+		[lName, "contact.lastName"],
+		[email, "contact.email"],
+	].reduce((obj, [newValue, key]) => {
+		if (newValue !== undefined) {
+			obj[key] = newValue;
+		}
+		return obj;
+	}, {})
+	console.log(payload);
+
+	const update = UserModel.findByIdAndUpdate(userId, payload, { new: true });
+	update.exec()
+		.then(doc => {
+			if (doc === null) {
+				res.send({ error: "User does not exist" }); return;
+			} else {
+				res.status(200).json(doc);
+			}
+		})
+		.catch(next);
 };

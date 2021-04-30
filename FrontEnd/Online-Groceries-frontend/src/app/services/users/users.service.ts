@@ -13,7 +13,7 @@ export class UsersService {
 
 	host = "http://localhost:9090";
 	endpoint = "/users";
-
+  
 	constructor(private http: HttpClient) { }
 
 	addUser(user: { role: String, status: UserStatus, username: String, password: String, contact: { firstname: String, lastname: String, dob: Date } }) {
@@ -53,4 +53,5 @@ export class UsersService {
 				catchError(error => throwError(error))
 			)
 	}
+
 }

@@ -9,6 +9,8 @@ import { ViewComponent as ViewAdminRequestsComponent } from "./components/admin/
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RootComponent } from './components/root/root.component';
+import { LoginComponent } from './components/employee/login/login/login.component';
+import { PanelComponent } from './components/employee/panel/panel/panel.component';
 import { loginAuthGuard } from './loginAuthGuard';
 import { UserloginComponent } from './components/user/userlogin/userlogin.component';
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
@@ -17,7 +19,12 @@ import { UsersignupComponent } from './components/user/usersignup/usersignup.com
 const routes: Routes = [
 	// Root
 	{ path: "", component: RootComponent },
+	// Employee
+	{ path: "employee", redirectTo: "/employee/login", pathMatch: "full" },
+	{ path: "employee/login", component: LoginComponent },
+	{ path: "employee/panel", component: PanelComponent },
 	// Admin
+	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	{ path: "admin/signin", component: SignInComponent },
 	{
 		path: "admin/home", component: HomeComponent,
@@ -28,14 +35,14 @@ const routes: Routes = [
 			{ path: "viewAdminRequests", component: ViewAdminRequestsComponent, outlet: "adminHome" },
 		]
 	},
-	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	// User
+	{ path: "user", redirectTo: "user/login", pathMatch: "full" },
 	{ path: "user/browseShop", component: ShoppingPageComponent },
-  	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
+  { path: "user/browseShop/myCart", component: ShoppingCartComponent },
 	{ path: "user/login", component:UserloginComponent},
 	{ path: "user/signup", component:UsersignupComponent},
 	{ path: "user/dashboard", component:UserpanelComponent},
-	{ path: "user", redirectTo:"user/login",pathMatch:"full"}
+
 ];
 
 @NgModule({
