@@ -1,14 +1,26 @@
-<section>
-	<ul *ngFor="let group of homeDirectory">
-		<li>
-			<h1>{{group.title}}</h1>
-			<ul *ngFor="let item of group.items">
-				<li><button [routerLink]="[{outlets: {adminHome: [item.routerLink]}}]">{{item.title}}</button></li>
-			</ul>
-		</li>
-	</ul>
-</section>
+<header>
+	<h1 class="page-title">User Panel</h1>
+</header>
 
-<section>
-	<router-outlet name="adminHome"></router-outlet>
-</section>
+<div class="columnFlexContainer">
+	<section class="flexContainer column-left">
+		<mat-card *ngFor="let group of homeDirectory">
+			<mat-card-title>{{group.title}}</mat-card-title>
+			<mat-card-content *ngFor="let item of group.items">
+				<button mat-raised-button color="primary" [routerLink]="[{outlets: {adminHome: [item.routerLink]}}]">{{item.title}}</button>
+			</mat-card-content>
+
+		</mat-card>
+		<mat-card>
+			<mat-card-title>Session</mat-card-title>
+			<mat-card-content>
+				<button mat-raised-button color="warn" (click)="logout()">Logout</button>
+			</mat-card-content>
+		</mat-card>
+	</section>
+
+	<section>
+		<router-outlet name="adminHome"></router-outlet>
+	</section>
+
+</div>
