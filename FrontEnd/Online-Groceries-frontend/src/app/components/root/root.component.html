@@ -1,7 +1,27 @@
-<h1>Temporary Root Page</h1>
+<div class="container justify-content-center">
+	<section class="headerContainer">
+		<h1>Welcome to Grocer App!</h1>
+		<h2>Select your role</h2>
+	</section>
 
-<ul>
-	<li><button routerLink="admin">Admin</button></li>
-	<li><button routerLink="user">User</button></li>
-	<li><button routerLink="employee">Employee</button></li>
-</ul>
+	<div class="flexContainer">
+		<mat-card routerLink="admin">
+			<mat-card-content>
+				<mat-card-title>Admin</mat-card-title>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card routerLink="user">
+			<mat-card-content>
+				<mat-card-title>User</mat-card-title>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card routerLink="employee">
+			<mat-card-content>
+				<mat-card-title>Employee</mat-card-title>
+			</mat-card-content>
+		</mat-card>
+	</div>
+
+</div>
