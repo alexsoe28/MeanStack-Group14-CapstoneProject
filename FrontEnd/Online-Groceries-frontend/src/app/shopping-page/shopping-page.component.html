@@ -3,9 +3,7 @@
         Groceries
     </div>
 </div>
-<div style="color:black; font-size: 75px;" class="title" >
-    Fruits
-</div>
+<p style="color:red; text-align: center;">{{underStockedMsg}}</p>
 <button mat-button style="margin-left:auto; margin-right:auto; display: block;" type="submit" routerLink="/user/browseShop/myCart">My Cart <mat-icon aria-hidden="false" aria-label="Cart">shopping_cart</mat-icon></button>
 <div *ngFor="let product of products">
     <form #amount="ngForm"(ngSubmit)="addToList(amount.value, amount, product.name)">
@@ -13,6 +11,7 @@
             {{product.name}}
             <br/><br/>
             <p style="font-size: 20px">Price: ${{product.price}}</p>
+            <img src="../../assets/images/{{product.name}}.jpg" class="center">
             <label style="font-size:20px; padding-right: 20px;">Quantity</label>
             <input type="number" ngModel name="quantity"><br>
             <button mat-button type="submit" >Add To Cart</button>

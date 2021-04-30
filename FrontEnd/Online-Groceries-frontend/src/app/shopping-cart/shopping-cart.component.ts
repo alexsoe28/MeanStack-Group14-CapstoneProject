@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { OrdersService } from '../services/orders/orders.service';
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -7,15 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCart:Array<any> = [];
+  checkoutOrder:Array<any> = [];
   displayedColumns: string[] = ['name', 'quantity', 'price'];
   invalidDeleteItem = false;
   invalidUpdateItem = false;
-  constructor() { }
+
+  constructor(public ordersService:OrdersService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('shoppingCart')){
       this.shoppingCart=JSON.parse(localStorage['shoppingCart']);
-      console.log(this.shoppingCart);
     }
   }
   getTotalCost() {
@@ -33,7 +36,6 @@ export class ShoppingCartComponent implements OnInit {
         return;
       }
     }
-    console.log(this.shoppingCart);
     if(!itemDeleted){
       this.invalidDeleteItem = true;
     }
@@ -60,7 +62,18 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitCart(){
-    let userid = localStorage.getItem("userid");
-
+    let userid = localStorage.getItem('userid');
+    if(localStorage.getItem('shoppingCart')){
+      this.shoppingCart=JSON.parse(localStorage['shoppingCart']);
+    }
+    else{
+      return;
+    }
+    for(let i = 0; i < this.shoppingCart.length; i++){
+      let orderObject = {productId: this.shoppingCart[i].productId, quantity: this.shoppingCart[i].quantity}
+      this.checkoutOrder.push(orderObject);
+    }
+    this.ordersService.checkout({userId:userid, cart:this.checkoutOrder});
+    console.log({userId:userid, cart:this.checkoutOrder});
   }
 }
