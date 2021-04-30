@@ -63,17 +63,25 @@ exports.addOne = (req, res, next) => {
  */
 exports.updateById = (req, res, next) => {
 	let { productId, name, price, stockInventory } = req.body;
-	[price, stockInventory] = [Number(price), Number(stockInventory)];
-	if (typeof productId !== "string" || typeof name !== "string" || isNaN(price) || isNaN(stockInventory)) {
+	const invalidKeys = [name, price, stockInventory].findIndex(item => !(typeof item === "string" || item === undefined));
+	console.log(invalidKeys);
+	if (typeof productId !== "string" || invalidKeys !== -1) {
+		next(new TypeError(`Invalid request.`)); return;
 		next(new TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
-		return;
 	}
 
-	const update = InventoryModel.findByIdAndUpdate(
-		productId,
-		{ name: name, price: price, stockInventory: stockInventory },
-		{ new: true }
-	);
+	/** @type {[key: string]: string} */
+	const payload = [
+		[name, "name"],
+		[price, "price"],
+		[stockInventory, "stockInventory"],
+	].reduce((obj, [newValue, key]) => {
+		if (newValue !== undefined) {
+			obj[key] = newValue;
+		}
+		return obj;
+	}, {})
+	const update = InventoryModel.findByIdAndUpdate(productId, payload, { new: true });
 	update.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next);
@@ -95,4 +103,27 @@ exports.deleteById = (req, res, next) => {
 	query.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next)
+}
+
+/**
+ * 
+ * @param {{productId: String, quantity: Number}[]} cart 
+ */
+exports.updateInventory = async (cart) => {
+	const queries = cart.map(async ({ productId, quantity }) => {
+		return InventoryModel
+			.findById(productId)
+			.then(doc => {
+				if (doc === null) { throw new TypeError(`Invalid Product ID`); }
+				return Math.max(0, doc.stockInventory - quantity);
+			})
+			.then(stockInventory => {
+				return InventoryModel
+					.findByIdAndUpdate(productId, { stockInventory: stockInventory }, { new: true })
+					.exec();
+			})
+			.then(doc => console.log(doc))
+			.catch(console.error)
+	})
+	return Promise.all(queries);
 }

@@ -1,5 +1,6 @@
 const e = require("express");
 const { OrderModel, OrderStatus } = require("../model/order.model");
+const { updateInventory } = require("./inventory.controller");
 
 /** 
  * @typedef { import("express").Request } Request 
@@ -28,6 +29,10 @@ exports.checkoutCart = (req, res, next) => {
 	})
 
 	OrderModel.create({ userId: userId, cart: order, orderStatus: "ordered" })
+		.then(async doc => { 
+			await updateInventory(doc.cart);
+			return doc;
+		})
 		.then(doc => res.status(200).json((({ _id, orderStatus }) => ({ _id, orderStatus }))(doc)))
 		.catch(next);
 };
@@ -44,7 +49,7 @@ exports.updateStatus = (req, res, next) => {
 		return;
 	}
 
-	const query = OrderModel.findByIdAndUpdate(orderId, { orderStatus: status }, {new: true});
+	const query = OrderModel.findByIdAndUpdate(orderId, { orderStatus: status }, { new: true });
 	query.exec()
 		.then(doc => res.status(200).json(doc))
 		.catch(next);
