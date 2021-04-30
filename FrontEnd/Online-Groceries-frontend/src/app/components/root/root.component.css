@@ -1,0 +1,21 @@
+.headerContainer {
+    padding-top: 30px;
+}
+
+.flexContainer {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexContainer mat-card {
+    cursor: pointer;
+    /* width: 200px; */
+    width: 100%;
+    text-align: center;
+    padding: 75px 0;
+}

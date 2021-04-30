@@ -1,13 +1,23 @@
-<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-	<label>
-		Username
-		<input type="text" formControlName="username">
-	</label>
-	<label>
-		Password
-		<input type="text" formControlName="password">
-	</label>
-	<div>
-		<button type="submit">Log in</button>
+<div class="login">
+	<div class="container justify-content-center">
+		<mat-card>
+			<mat-card-title>Admin Login</mat-card-title>
+			<br/>
+			<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+				<mat-icon aria-hidden="false" aria-label="account">account_circle</mat-icon>
+				<br />
+				<mat-form-field>
+					<mat-label>Username</mat-label>
+					<input matInput type="text" formControlName="username">
+				</mat-form-field>
+				<br />
+				<mat-form-field>
+					<mat-label>Password</mat-label>
+					<input matInput type="password" formControlName="password">
+				</mat-form-field>
+				<br />
+				<button mat-raised-button color="primary" type="submit">Login</button>
+			</form>
+		</mat-card>
 	</div>
-</form> 
+</div>

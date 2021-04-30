@@ -36,6 +36,11 @@ exports.getById = (req, res, next) => {
 		.catch(next)
 }
 
+exports.getPriceById = (productId) => {
+	return InventoryModel.findById(productId)
+		.then(doc => (({ price }) => ({ price }))(doc) )
+}
+
 /**
  * @param {Request} req 
  * @param {Response} res 
@@ -63,12 +68,12 @@ exports.addOne = (req, res, next) => {
  */
 exports.updateById = (req, res, next) => {
 	let { productId, name, price, stockInventory } = req.body;
-	const invalidKeys = [name, price, stockInventory].findIndex(item => !(typeof item === "string" || item === undefined));
-	console.log(invalidKeys);
-	if (typeof productId !== "string" || invalidKeys !== -1) {
-		next(new TypeError(`Invalid request.`)); return;
-		next(new TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
-	}
+	// const invalidKeys = [name, price, stockInventory].findIndex(item => !(typeof item === "string" || item === undefined));
+	// console.log(invalidKeys);
+	// if (typeof productId !== "string" || invalidKeys !== -1) {
+	// 	next(new TypeError(`Invalid request.`)); return;
+	// 	next(new TypeError(`Invalid request. Req: ${JSON.stringify(req.body)}`));
+	// }
 
 	/** @type {[key: string]: string} */
 	const payload = [

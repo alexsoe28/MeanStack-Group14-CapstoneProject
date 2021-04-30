@@ -5,6 +5,14 @@ import { catchError, tap } from 'rxjs/operators';
 
 export type UserRole = "admin" | "customer" | "employee";
 export type UserStatus = "normal" | "locked";
+export interface User {
+	_id: String,
+	username: String,
+	password: String,
+	roles: String,
+	wallet: Number,
+	contact: { [key: string]: any},
+}
 
 @Injectable({
 	providedIn: 'root'
@@ -55,10 +63,19 @@ export class UsersService {
 
 	updateUserDetails(details: {
 		userId: String, fName?: String, lName?: String, email?: String,
+		wallet?: Number,
 		username?: String, password?: String
 	}) {
 		const url = this.host + this.endpoint + "/updateUserDetails";
 		return this.http.put(url, details)
+			.pipe(
+				catchError(error => throwError(error))
+			)
+	}
+
+	getUserById(userId: String) {
+		const url = this.host + this.endpoint + "/getUserById";
+		return this.http.post<User>(url, { userId: userId })
 			.pipe(
 				catchError(error => throwError(error))
 			)

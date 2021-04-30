@@ -8,6 +8,7 @@ router.post("/login", UsersController.userLogin);
 router.post("/lockUser", UsersController.lockUserByUname);
 router.post("/unlockUserById", UsersController.unlockUserById);
 router.put("/updateUserDetails", UsersController.updateDetails);
+router.post("/getUserById", UsersController.updateDetails);
 
 // MARK: - Exports
 module.exports = router;

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,10 +27,13 @@ import { RootComponent } from './components/root/root.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './components/employee/login/login/login.component';
 import { PanelComponent } from './components/employee/panel/panel/panel.component';
-import { EmployeeRequestComponent } from './employee-request/employee-request.component';
-import { UpdateStatusComponent } from './update-status/update-status.component';
-import { UnlockUserComponent } from './unlock-user/unlock-user.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EmployeeRequestComponent } from './components/employee/employee-request/employee-request.component';
+import { UpdateStatusComponent } from './components/employee/update-status/update-status.component';
+import { UnlockUserComponent } from './components/employee/unlock-user/unlock-user.component';
+import { EditProfileComponent } from './components/employee/edit-profile/edit-profile.component';
+import { ListComponent } from './components/admin/products/list/list.component';
+import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
+import { ReportComponent } from './components/admin/report/report/report.component';
 import { AddEmplopyeeComponent } from './components/admin/add-emplopyee/add-emplopyee.component';
 import { DeleteEmplopyeeComponent } from './components/admin/delete-emplopyee/delete-emplopyee.component';
 import { GenerateReportComponent } from './components/admin/generate-report/generate-report.component';
@@ -44,6 +48,9 @@ import { GenerateReportComponent } from './components/admin/generate-report/gene
     UpdateComponent,
     ViewComponent,
     HomeComponent,
+    AddEmplopyeeComponent,
+    DeleteEmplopyeeComponent,
+    GenerateReportComponent,
 
     //  Shopping Cart
     ShoppingPageComponent,
@@ -62,9 +69,10 @@ import { GenerateReportComponent } from './components/admin/generate-report/gene
     UpdateStatusComponent,
     UnlockUserComponent,
     EditProfileComponent,
-    AddEmplopyeeComponent,
-    DeleteEmplopyeeComponent,
-    GenerateReportComponent
+    ListComponent,
+    AddfundsComponent,
+    ReportComponent
+
   ],
     imports: [
       BrowserModule,
@@ -79,6 +87,7 @@ import { GenerateReportComponent } from './components/admin/generate-report/gene
       MatInputModule,
       MatFormFieldModule,
       MatTableModule,
+			MatSnackBarModule,
     ],
     providers: [loginAuthGuard],
     bootstrap: [AppComponent]

@@ -1,0 +1,26 @@
+<!--Form that allows the user to enter userIds to unlock user-->
+<div>
+    <form #unlockUserById="ngForm" (ngSubmit)="unlockUser(unlockUserById.value)">
+        <mat-form-field>
+            <mat-label>Enter the User Id of the account to be unlocked</mat-label>
+            <input matInput name="userId" ngModel placeholder="Enter User Id">
+        </mat-form-field>
+        <br/>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+    {{updateMsg}}
+</div>
+
+<!--HTML Table that populates from DB showing all the locked users Need ID and Reason for lock-->
+<div>
+    <table border="1">
+            <tr>
+                <th>User ID</th>
+                <th>Reason for lockout</th>
+            </tr>
+            <tr *ngFor="let user of users">
+                    <td>{{user.userId}}</td>
+                    <td>{{user.message}}</td>
+            </tr>
+    </table>
+</div>

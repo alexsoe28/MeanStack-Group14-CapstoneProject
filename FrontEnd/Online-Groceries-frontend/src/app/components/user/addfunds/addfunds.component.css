@@ -1,3 +1,7 @@
+.rootContainer {
+    padding: 16px 16px 0;
+}
+
 mat-form-field {
     width: 100%;
 }

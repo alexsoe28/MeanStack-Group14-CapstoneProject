@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ticket, TicketsService } from '../services/tickets/tickets.service';
+import { Ticket, TicketsService } from '../../../services/tickets/tickets.service';
 
 @Component({
   selector: 'app-employee-request',
