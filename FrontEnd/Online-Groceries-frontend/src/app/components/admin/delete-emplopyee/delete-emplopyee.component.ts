@@ -18,4 +18,10 @@ export class DeleteEmplopyeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteEmp(){
+    const userId = this.deleteEmpForm.get("userId") as FormControl;
+    let user = { "userId": userId.value.toString()};
+    this.uSer.deleteUserByID(user);
+  }
+
 }
