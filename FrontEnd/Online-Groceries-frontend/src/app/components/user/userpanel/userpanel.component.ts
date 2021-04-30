@@ -13,7 +13,7 @@ export class UserpanelComponent implements OnInit {
 	ngOnInit(): void {
 	}
 	loginRedirect() {
-		this.router.navigate(["user/login"]);
+		this.router.navigate(["employee/login"]);
 	}
 	userPanelRedirect(location: string) {
 		if (location == 'Shop') {

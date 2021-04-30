@@ -16,9 +16,11 @@ import { loginAuthGuard } from './loginAuthGuard';
 import { UserloginComponent } from './components/user/userlogin/userlogin.component';
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
 import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
-import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './components/employee/edit-profile/edit-profile.component';
 import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
 import { EmployeeRequestComponent } from './components/employee/employee-request/employee-request.component';
+import { UnlockUserComponent } from './components/employee/unlock-user/unlock-user.component';
+import { UpdateStatusComponent } from './components/employee/update-status/update-status.component';
 
 const routes: Routes = [
 	// Root
@@ -28,6 +30,9 @@ const routes: Routes = [
 	{ path: "employee/login", component: LoginComponent },
 	{ path: "employee/panel", component: PanelComponent },
 	{ path: "employee/sendRequest", component: EmployeeRequestComponent },
+	{ path: "employee/unlockUser", component: UnlockUserComponent },
+	{ path: "employee/updateStatus", component: UpdateStatusComponent },
+	{ path: "employee/editProfile", component: EditProfileComponent },
 	// Admin
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	{ path: "admin/signin", component: SignInComponent },

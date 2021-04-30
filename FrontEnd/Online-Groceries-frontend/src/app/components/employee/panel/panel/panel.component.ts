@@ -20,14 +20,14 @@ export class PanelComponent implements OnInit {
 		if (location == 'SendRequest') {
 			this.router.navigate(["employee/sendRequest"]);
 		}
-		// else if (location == 'Cart') {
-		// 	this.router.navigate(["user/browseShop/myCart"]);
-		// }
-		// else if (location == 'EditProfile') {
-		// 	this.router.navigate(["user/editProfile"]);
-		// }
-		// else if (location == 'AddFunds') {
-		// 	this.router.navigate(["user/addFunds"]);
-		// }
+		else if (location == 'UnlockUser') {
+			this.router.navigate(["employee/unlockUser"]);
+		}
+		else if (location == 'UpdateStatus') {
+			this.router.navigate(["employee/updateStatus"]);
+		}
+		else if (location == 'EditProfile') {
+			this.router.navigate(["employee/editProfile"]);
+		}
 	}
 }

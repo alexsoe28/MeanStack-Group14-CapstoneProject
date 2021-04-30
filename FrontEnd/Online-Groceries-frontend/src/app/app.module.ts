@@ -29,8 +29,8 @@ import { LoginComponent } from './components/employee/login/login/login.componen
 import { PanelComponent } from './components/employee/panel/panel/panel.component';
 import { EmployeeRequestComponent } from './components/employee/employee-request/employee-request.component';
 import { UpdateStatusComponent } from './components/employee/update-status/update-status.component';
-import { UnlockUserComponent } from './components/user/unlock-user/unlock-user.component';
-import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
+import { UnlockUserComponent } from './components/employee/unlock-user/unlock-user.component';
+import { EditProfileComponent } from './components/employee/edit-profile/edit-profile.component';
 import { ListComponent } from './components/admin/products/list/list.component';
 import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
 
