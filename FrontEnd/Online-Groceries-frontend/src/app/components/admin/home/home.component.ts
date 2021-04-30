@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
 				{title: "Add Products", routerLink: "addProducts"},
 				{title: "Update Products", routerLink: "updateProducts"},
 				{title: "Delete Products", routerLink: "deleteProducts"},
+				{title: "List Products", routerLink: "listProducts"},
 			]
 		},
 		{
@@ -24,9 +26,13 @@ export class HomeComponent implements OnInit {
 		},
 	]
 
-	constructor() { }
+	constructor(private router: Router) { }
 
-	ngOnInit(): void {
+	ngOnInit(): void { }
+
+	logout() {
+		localStorage.removeItem("userid");
+		this.router.navigate(["/"]);
 	}
 
 }

@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { tap, catchError } from "rxjs/operators";
 
+export interface ProductItem {
+	_id: String,
+	name: String,
+	price: Number,
+	stockInventory: Number,
+	__v: Number,
+}
 @Injectable({
 	providedIn: 'root'
 })
@@ -15,7 +22,7 @@ export class ProductsService {
 
 	getAll() {
 		const url = this.host + this.endpoint + "/getAll";
-		return this.http.get(url)
+		return this.http.get<ProductItem[]>(url)
 			.pipe(
 				tap(data => console.log(data)),
 				catchError(error => throwError(error))

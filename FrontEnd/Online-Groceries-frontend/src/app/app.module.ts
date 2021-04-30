@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,7 @@ import { EmployeeRequestComponent } from './employee-request/employee-request.co
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { UnlockUserComponent } from './unlock-user/unlock-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ListComponent } from './components/admin/products/list/list.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     EmployeeRequestComponent,
     UpdateStatusComponent,
     UnlockUserComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ListComponent
   ],
     imports: [
       BrowserModule,
@@ -73,6 +76,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       MatInputModule,
       MatFormFieldModule,
       MatTableModule,
+			MatSnackBarModule,
     ],
     providers: [loginAuthGuard],
     bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { SignInComponent } from './components/admin/signin/signin.component';
 import { AddComponent as AdminAddProductComponent } from "./components/admin/products/add/add.component";
 import { UpdateComponent as AdminUpdateProductComponent } from "./components/admin/products/update/update.component";
 import { DeleteComponent as AdminDeleteProductComponent } from "./components/admin/products/delete/delete.component";
+import { ListComponent as AdminListProductComponent } from "./components/admin/products/list/list.component";
 import { ViewComponent as ViewAdminRequestsComponent } from "./components/admin/requests/view/view.component";
 import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
 			{ path: "addProducts", component: AdminAddProductComponent, outlet: "adminHome" },
 			{ path: "updateProducts", component: AdminUpdateProductComponent, outlet: "adminHome" },
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
+			{ path: "listProducts", component: AdminListProductComponent, outlet: "adminHome" },
 			{ path: "viewAdminRequests", component: ViewAdminRequestsComponent, outlet: "adminHome" },
 		]
 	},
