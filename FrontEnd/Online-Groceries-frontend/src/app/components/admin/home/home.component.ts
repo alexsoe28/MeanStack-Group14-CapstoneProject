@@ -24,6 +24,12 @@ export class HomeComponent implements OnInit {
 				{title: "View Requests", routerLink: "viewAdminRequests"},
 			]
 		},
+		{
+			title: "Reports",
+			items: [
+				{title: "Generate Report", routerLink: "generateReport"},
+			]
+		},
 	]
 
 	constructor(private router: Router) { }

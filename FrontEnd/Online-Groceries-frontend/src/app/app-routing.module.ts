@@ -21,6 +21,7 @@ import { AddfundsComponent } from './components/user/addfunds/addfunds.component
 import { EmployeeRequestComponent } from './components/employee/employee-request/employee-request.component';
 import { UnlockUserComponent } from './components/employee/unlock-user/unlock-user.component';
 import { UpdateStatusComponent } from './components/employee/update-status/update-status.component';
+import { ReportComponent } from './components/admin/report/report/report.component';
 
 const routes: Routes = [
 	// Root
@@ -44,6 +45,7 @@ const routes: Routes = [
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
 			{ path: "listProducts", component: AdminListProductComponent, outlet: "adminHome" },
 			{ path: "viewAdminRequests", component: ViewAdminRequestsComponent, outlet: "adminHome" },
+			{ path: "generateReport", component: ReportComponent, outlet: "adminHome" },
 		]
 	},
 	// User

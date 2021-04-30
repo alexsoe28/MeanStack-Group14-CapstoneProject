@@ -33,6 +33,7 @@ import { UnlockUserComponent } from './components/employee/unlock-user/unlock-us
 import { EditProfileComponent } from './components/employee/edit-profile/edit-profile.component';
 import { ListComponent } from './components/admin/products/list/list.component';
 import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
+import { ReportComponent } from './components/admin/report/report/report.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AddfundsComponent } from './components/user/addfunds/addfunds.component
     UnlockUserComponent,
     EditProfileComponent,
     ListComponent,
-    AddfundsComponent
+    AddfundsComponent,
+    ReportComponent
   ],
     imports: [
       BrowserModule,

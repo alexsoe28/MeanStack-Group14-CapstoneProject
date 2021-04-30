@@ -14,6 +14,21 @@ const { updateInventory, getPriceById } = require("./inventory.controller");
  * @param {Response} res 
  * @param {NextFunction} next 
  */
+exports.getAll = (req, res, next) => {
+	// let { date } = req.body;
+
+	// const query = OrderModel.find({ timestamp: { $lte: date } })
+	const query = OrderModel.find()
+	query.exec()
+		.then(doc => res.json(doc))
+		.catch(next)
+}
+
+/**
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
 exports.checkoutCart = (req, res, next) => {
 	const { userId, cart } = req.body;
 	if (typeof userId !== "string" || !Array.isArray(cart)) {
