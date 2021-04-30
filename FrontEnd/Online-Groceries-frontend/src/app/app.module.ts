@@ -24,6 +24,8 @@ import { ViewComponent } from './components/admin/requests/view/view.component';
 import { HomeComponent } from './components/admin/home/home.component';
 import { RootComponent } from './components/root/root.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { LoginComponent } from './components/employee/login/login/login.component';
+import { PanelComponent } from './components/employee/panel/panel/panel.component';
 import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { UnlockUserComponent } from './unlock-user/unlock-user.component';
@@ -44,6 +46,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ShoppingPageComponent,
     ShoppingCartComponent,
     RootComponent,
+		
+		// Employee
+    LoginComponent,
+    PanelComponent,
 
     // User
     UserloginComponent,
