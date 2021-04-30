@@ -36,6 +36,7 @@ export class UpdateComponent implements OnInit {
 				price: price.value as Number,
 				stockInventory: quantity.value as Number,
 			}
+			console.log(product);
 
 			this.productsService.updateProduct(product);
 			console.table(product);
