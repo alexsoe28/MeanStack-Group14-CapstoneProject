@@ -18,6 +18,7 @@ import { UserpanelComponent } from './components/user/userpanel/userpanel.compon
 import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
 import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 import { AddfundsComponent } from './components/user/addfunds/addfunds.component';
+import { EmployeeRequestComponent } from './components/employee/employee-request/employee-request.component';
 
 const routes: Routes = [
 	// Root
@@ -26,6 +27,7 @@ const routes: Routes = [
 	{ path: "employee", redirectTo: "/employee/login", pathMatch: "full" },
 	{ path: "employee/login", component: LoginComponent },
 	{ path: "employee/panel", component: PanelComponent },
+	{ path: "employee/sendRequest", component: EmployeeRequestComponent },
 	// Admin
 	{ path: "admin", redirectTo: "/admin/signin", pathMatch: "full" },
 	{ path: "admin/signin", component: SignInComponent },
