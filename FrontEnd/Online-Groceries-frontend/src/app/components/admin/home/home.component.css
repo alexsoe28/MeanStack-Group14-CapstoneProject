@@ -1,23 +1,11 @@
 .page-title {
-  font-family: "Roboto-Medium", sans-serif;
-  font-weight: 500;
-  size: 20px;
-  font-size: xx-large;
-  text-align: center;
-  max-width: 100%;
-  margin: 10px 0;
-}
-
-.header-row {
-  transform: translate(0, 100%);
-  width: stretch;
-}
-.logout {
-  align-self: end;
-  margin-right: 20px;
-}
-.logoutbutton {
-  width: fit-content;
+    font-family: "Roboto-Medium", sans-serif;
+    font-weight: 500;
+    size: 20px;
+    font-size: xx-large;
+    text-align: center;
+    max-width: 100%;
+    margin: 10px 0;
 }
 
 button {
@@ -26,15 +14,20 @@ button {
 
 .columnFlexContainer {
     display: flex;
-    margin-top: 30px;
+    padding: 16px 16px 0;
+    margin: 0 auto;
+    gap: 16px;
+    max-width: 1024px;
 }
 
 .columnFlexContainer .column-left {
     flex: 1;
 }
+.columnFlexContainer .column-right {
+    flex: 4;
+}
 
 .flexContainer {
-    padding: 0 30px;
     display: flex;
     width: 100%;
     gap: 16px;
@@ -47,7 +40,6 @@ button {
 .flexContainer mat-card {
     flex: 1;
     width: fit-content;
-
     /* text-align: center; */
     /* padding: 75px 0; */
 }

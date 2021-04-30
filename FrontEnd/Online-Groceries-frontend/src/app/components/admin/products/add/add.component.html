@@ -1,15 +1,21 @@
-<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
-	<label>
-		Product Name
-		<input type="text" formControlName="name">
-	</label>
-	<label>
-		Price
-		<input type="number" formControlName="price">
-	</label>
-	<label>
-		Quantity
-		<input type="number" formControlName="quantity">
-	</label>
-	<button type="submit">Submit</button>
-</form>
+<div class="justify-content-center">
+	<mat-card>
+		<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+			<mat-form-field>
+				<mat-label>Product Name</mat-label>
+				<input matInput type="text" formControlName="name">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Price</mat-label>
+				<input matInput type="text" formControlName="price">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Quantity</mat-label>
+				<input matInput type="text" formControlName="quantity">
+			</mat-form-field>
+			<button mat-raised-button color="primary" type="submit">Submit</button>
+		</form>
+
+	</mat-card>
+
+</div>
