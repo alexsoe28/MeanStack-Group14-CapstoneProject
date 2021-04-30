@@ -48,6 +48,7 @@ export class SignInComponent implements OnInit {
 						this._snackBar.open("Wrong Username or Password!", undefined, { duration: 3000 });
 					} else {
 						console.log(`logged in as userId: ${userId}`);
+						localStorage.setItem("userid", userId.toString());
 						this.router.navigate(['/admin/home']);
 					}
 				})

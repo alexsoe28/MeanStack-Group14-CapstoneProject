@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void { }
 
 	logout() {
+		localStorage.removeItem("userid");
 		this.router.navigate(["/"]);
 	}
 
