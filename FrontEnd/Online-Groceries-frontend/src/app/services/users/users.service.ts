@@ -72,7 +72,11 @@ export class UsersService {
 				catchError(error => throwError(error))
 			)
 	}
-
+	deleteUserByID(user: {userId: String}){
+		const url = this.host + this.endpoint + "/getUserById";
+		this.http.delete(url, { params: { "userID": user.userId.toString() } })
+			.subscribe(result => console.log(result), error => console.error(error));
+	}
 	getUserById(userId: String) {
 		const url = this.host + this.endpoint + "/getUserById";
 		return this.http.post<User>(url, { userId: userId })

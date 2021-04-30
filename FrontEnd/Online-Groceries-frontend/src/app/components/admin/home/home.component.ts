@@ -19,6 +19,13 @@ export class HomeComponent implements OnInit {
 			]
 		},
 		{
+			title: "Employees",
+			items: [
+				{title: "Add Employees", routerLink: "addEmployees"},
+				{title: "Delete Employees", routerLink: "deleteEmployees"},
+			]
+		},
+		{
 			title: "Requests",
 			items: [
 				{title: "View Requests", routerLink: "viewAdminRequests"},

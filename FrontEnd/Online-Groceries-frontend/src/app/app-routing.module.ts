@@ -22,6 +22,8 @@ import { EmployeeRequestComponent } from './components/employee/employee-request
 import { UnlockUserComponent } from './components/employee/unlock-user/unlock-user.component';
 import { UpdateStatusComponent } from './components/employee/update-status/update-status.component';
 import { ReportComponent } from './components/admin/report/report/report.component';
+import { AddEmplopyeeComponent } from './components/admin/add-emplopyee/add-emplopyee.component';
+import { DeleteEmplopyeeComponent } from './components/admin/delete-emplopyee/delete-emplopyee.component';
 
 const routes: Routes = [
 	// Root
@@ -41,6 +43,8 @@ const routes: Routes = [
 		path: "admin/home", component: HomeComponent,
 		children: [
 			{ path: "addProducts", component: AdminAddProductComponent, outlet: "adminHome" },
+			{ path: "addEmployees", component: AddEmplopyeeComponent, outlet: "adminHome" },
+			{ path: "deleteEmployees", component: DeleteEmplopyeeComponent, outlet: "adminHome" },
 			{ path: "updateProducts", component: AdminUpdateProductComponent, outlet: "adminHome" },
 			{ path: "deleteProducts", component: AdminDeleteProductComponent, outlet: "adminHome" },
 			{ path: "listProducts", component: AdminListProductComponent, outlet: "adminHome" },
