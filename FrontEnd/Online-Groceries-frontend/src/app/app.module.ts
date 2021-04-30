@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -73,6 +74,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       MatInputModule,
       MatFormFieldModule,
       MatTableModule,
+			MatSnackBarModule,
     ],
     providers: [loginAuthGuard],
     bootstrap: [AppComponent]
