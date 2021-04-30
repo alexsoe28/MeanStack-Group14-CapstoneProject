@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/admin/home/home.component';
 import { SignInComponent } from './components/admin/signin/signin.component';
@@ -16,6 +16,7 @@ import { loginAuthGuard } from './loginAuthGuard';
 import { UserloginComponent } from './components/user/userlogin/userlogin.component';
 import { UserpanelComponent } from './components/user/userpanel/userpanel.component';
 import { UsersignupComponent } from './components/user/usersignup/usersignup.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
 	// Root
@@ -40,10 +41,11 @@ const routes: Routes = [
 	// User
 	{ path: "user", redirectTo: "user/login", pathMatch: "full" },
 	{ path: "user/browseShop", component: ShoppingPageComponent },
-  { path: "user/browseShop/myCart", component: ShoppingCartComponent },
-	{ path: "user/login", component:UserloginComponent},
-	{ path: "user/signup", component:UsersignupComponent},
-	{ path: "user/dashboard", component:UserpanelComponent},
+	{ path: "user/browseShop/myCart", component: ShoppingCartComponent },
+	{ path: "user/login", component: UserloginComponent },
+	{ path: "user/signup", component: UsersignupComponent },
+	{ path: "user/dashboard", component: UserpanelComponent },
+	{ path: "user/editProfile", component: EditProfileComponent },
 
 ];
 
