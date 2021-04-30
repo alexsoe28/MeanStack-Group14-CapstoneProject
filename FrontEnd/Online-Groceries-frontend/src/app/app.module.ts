@@ -36,7 +36,6 @@ import { AddfundsComponent } from './components/user/addfunds/addfunds.component
 import { ReportComponent } from './components/admin/report/report/report.component';
 import { AddEmplopyeeComponent } from './components/admin/add-emplopyee/add-emplopyee.component';
 import { DeleteEmplopyeeComponent } from './components/admin/delete-emplopyee/delete-emplopyee.component';
-import { GenerateReportComponent } from './components/admin/generate-report/generate-report.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { GenerateReportComponent } from './components/admin/generate-report/gene
     HomeComponent,
     AddEmplopyeeComponent,
     DeleteEmplopyeeComponent,
-    GenerateReportComponent,
 
     //  Shopping Cart
     ShoppingPageComponent,
