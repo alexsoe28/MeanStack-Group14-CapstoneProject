@@ -15,7 +15,7 @@ export class UsersService {
 
 	constructor(private http: HttpClient) { }
 
-  addUser(product: { fname: String, lname: String, dob: Date, username: String, password:String, role:String, status:String }) {
+	addUser(product: { fname: String, lname: String, dob: Date, username: String, password: String, role: String, status: String }) {
 		const url = this.host + this.endpoint + "/signup";
 		this.http.post(url, product)
 			.subscribe(result => console.log(result), error => console.error(error));
@@ -40,5 +40,16 @@ export class UsersService {
 					return throwError(error)
 				})
 			);
+	}
+
+	updateUserDetails(details: {
+		userId: String, fName?: String, lName?: String, email?: String,
+		username?: String, password?: String
+	}) {
+		const url = this.host + this.endpoint + "/updateUserDetails";
+		return this.http.put(url, details)
+			.pipe(
+				catchError(error => throwError(error))
+			)
 	}
 }
