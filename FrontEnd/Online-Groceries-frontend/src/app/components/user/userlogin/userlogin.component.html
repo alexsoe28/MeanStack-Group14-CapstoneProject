@@ -2,17 +2,17 @@
     <div class="container justify-content-center">
     <mat-card>
         <!-- (ngSubmit)="loginUser(loginRef.value)" -->
-        <form #loginRef="ngForm" (ngSubmit)="loginUser()"> 
+        <form [formGroup]="userLoginForm" (ngSubmit)="loginUser()"> 
             <mat-icon aria-hidden="false" aria-label="account">account_circle</mat-icon>
             <br/>
             <mat-form-field>
                 <mat-label>Usename</mat-label>
-                <input matInput type="text" name="username" ngModel/>
+                <input matInput type="text" formControlName="username" ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input matInput [type]="hidepass ? 'password' : 'text'" name="password" ngModel>
+                <input matInput [type]="hidepass ? 'password' : 'text'" formControlName="password" ngModel>
                 <button mat-icon-button matSuffix (click)="hidepass = !hidepass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidepass">
                     <mat-icon>{{hidepass ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
