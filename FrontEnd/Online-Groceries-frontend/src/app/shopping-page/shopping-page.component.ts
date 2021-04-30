@@ -52,7 +52,7 @@ export class ShoppingPageComponent implements OnInit {
           return;
         }
         totalPrice = this.products[i].price * amount.quantity;
-        produceObject = { productId: this.products[i]._id, name:name, quantity:amount.quantity, price:totalPrice}
+        produceObject = { productId: this.products[i]._id, stockInventory: this.products[i].stockInventory, name:name, quantity:amount.quantity, price:totalPrice}
         break;
       }
     }
